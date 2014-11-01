@@ -1,3 +1,26 @@
-\section{Введение}
 
-текст со ссылкой на литературу. \cite{baskakov}
+
+Пусть $X \subset \mathbb{C}^n$ --- комплексное евклидово пространство размерности $n$. 
+Задан вектор $x_0$ и известен набор векторов $x_1,x_2, \dots x_m$, обладающих свойствами:
+\begin{enumerate}
+	\item векторы $x_0,x_1, \dots x_{m-1}$ линейно независимы;
+	\item $x_k = A^k x_0, k= \overline{1,m}$;
+	\item $x_m = \alpha_0 x_0 + \alpha_1 x_1 + \dots \alpha_{n-1} x_{n-1}$,
+\end{enumerate}
+где $A \subset L(X)$ --- неизвестный  линейный оператор и $m \leqslant n$. Положим $m=n$. 
+Тогда векторы $x_0 \dots x_{n-1}$ образуют базис в пространстве $X$. \\
+
+Построим матрицу оператора $A$ в этом базисе:
+\[
+	\begin{pmatrix}
+		0 & 1 & 0 & \dots & 0 \\
+		0 & 0 & 1 & \dots & 0 \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & 0 & \dots & 1 \\
+		\alpha_0 & \alpha_1 & \alpha_2 & \dots & \alpha_n
+	\end{pmatrix}
+\]
+Рассмотрим характеристический многочлен оператора $A$:
+\[
+	p(\lambda) = \lambda^n+a_1 \lambda^{n-1} + \dots + a_n
+\]
