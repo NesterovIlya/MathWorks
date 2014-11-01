@@ -1,0 +1,41 @@
+Для примера рассмотрим частный случай $n=3.$ Тогда матрица $\mathcal{A}$ имеет вид:
+$$
+ \mathcal{A} = 
+ \begin{pmatrix}
+  0 & 1 & 0\\
+  0 & 0 & 1 \\
+  \alpha_3 & \alpha_2 & \alpha_1 \\
+ \end{pmatrix}
+$$
+Возможны три варианта:
+\begin{enumerate} [\quad 1)]
+\item все собственные значения различны;
+\item есть собственные значения $\lambda_1, \lambda_2,$ которые имеют кратности $k_1=2, k_2=1$ соответственно; 
+\item все собственные значения одинаковы;        
+\end{enumerate}
+
+Пусть матрица $\mathcal{A}$ имеет собственные значения $\lambda_1, \lambda_2, \lambda_3$ которые имеют кратности $k_1=k_2=k_3=1$ соответственно. Тогда Жорданова форма матрицы $\mathcal{A}$ имеет вид:
+$$
+ \mathcal{J} = 
+ \begin{pmatrix}
+  \lambda_1 & 0 & 0\\
+  0 & \lambda_2 & 0 \\
+  0 & 0 & \lambda_3 \\
+ \end{pmatrix}
+$$
+Далее запишем матрицу перехода $\mathcal{U}$ и обратную к ней $\mathcal{U}^{-1}.$
+$$
+ \mathcal{U} = 
+ \begin{pmatrix}
+  1 & 1 & 1\\
+  \lambda_1 & \lambda_2 & \lambda_3 \\
+  \lambda_1^2 & \lambda_2^2 & \lambda_3^2 \\
+ \end{pmatrix}
+\  \mathcal{U}^{-1} = \frac{1}{\Delta} 
+ \begin{pmatrix}
+  \lambda_2\lambda_3(\lambda_3-\lambda_2) & \lambda_2^2-\lambda_3^2 & \lambda_3-\lambda_2\\
+  \lambda_1\lambda_3(\lambda_1-\lambda_3) & \lambda_3^2-\lambda_1^2 & \lambda_1-\lambda_3\\
+  \lambda_1\lambda_1(\lambda_2-\lambda_1) & \lambda_2^2-\lambda_1^2 & \lambda_2-\lambda_1\\
+ \end{pmatrix},
+$$
+где $\Delta = (\lambda_3-\lambda_1)(\lambda_3-\lambda_2)(\lambda_2-\lambda_1).$
