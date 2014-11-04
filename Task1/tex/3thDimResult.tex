@@ -1,4 +1,5 @@
-Для примера рассмотрим частный случай $n=3.$ Тогда матрица $\mathcal{A}$ имеет вид:
+\section{Пример}
+Для примера рассмотрим частный случай~$n=3$. Тогда матрица~$\mathcal{A}$ имеет вид:
 $$
  \mathcal{A} = 
  \begin{pmatrix}
@@ -8,13 +9,14 @@ $$
  \end{pmatrix}
 $$
 Возможны три варианта:
-\begin{enumerate} %[\quad 1)]
+\begin{enumerate}
 \item все собственные значения различны;
-\item есть собственные значения $\lambda_1, \lambda_2,$ которые имеют кратности $k_1=2, k_2=1$ соответственно; 
+\item есть собственные значения $\lambda_1, \lambda_2,$ которые имеют кратности ${k_1=2},~{k_2=1}$ соответственно; 
 \item все собственные значения одинаковы;        
 \end{enumerate}
 
-Пусть матрица $\mathcal{A}$ имеет собственные значения $\lambda_1, \lambda_2, \lambda_3$ которые имеют кратности $k_1=k_2=k_3=1$ соответственно. Тогда Жорданова форма матрицы $\mathcal{A}$ имеет вид:
+Рассмотрим первый случай.
+Пусть матрица $\mathcal{A}$ имеет собственные значения $\lambda_1, \lambda_2, \lambda_3$ которые имеют кратности~ $k_1=k_2=k_3=1$ соответственно. Оператор $A$ имеет простую структуру. Тогда жорданова форма матрицы~$\mathcal{A}$ имеет вид:
 $$
  \mathcal{J} = 
  \begin{pmatrix}
@@ -23,19 +25,103 @@ $$
   0 & 0 & \lambda_3 \\
  \end{pmatrix}
 $$
-Далее запишем матрицу перехода $\mathcal{U}$ и обратную к ней $\mathcal{U}^{-1}.$
+Далее запишем матрицу перехода~$\mathcal{U}$ и~обратную к~ней~$\mathcal{U}^{-1}$:
 $$
- \mathcal{U} = 
+\begin{aligned}
+ \mathcal{U} &= 
  \begin{pmatrix}
-  1 & 1 & 1\\
-  \lambda_1 & \lambda_2 & \lambda_3 \\
-  \lambda_1^2 & \lambda_2^2 & \lambda_3^2 \\
- \end{pmatrix}
-\  \mathcal{U}^{-1} = \frac{1}{\Delta} 
+  	1 & 1 & 1\\
+  	\lambda_1 & \lambda_2 & \lambda_3 \\
+  	\lambda_1^2 & \lambda_2^2 & \lambda_3^2 \\
+ \end{pmatrix}, \\
+ \mathcal{U}^{-1} &= \frac{1}{\Delta} 
  \begin{pmatrix}
-  \lambda_2\lambda_3(\lambda_3-\lambda_2) & \lambda_2^2-\lambda_3^2 & \lambda_3-\lambda_2\\
-  \lambda_1\lambda_3(\lambda_1-\lambda_3) & \lambda_3^2-\lambda_1^2 & \lambda_1-\lambda_3\\
-  \lambda_1\lambda_1(\lambda_2-\lambda_1) & \lambda_2^2-\lambda_1^2 & \lambda_2-\lambda_1\\
+  	\lambda_2\lambda_3(\lambda_3-\lambda_2) & \lambda_2^2-\lambda_3^2 & \lambda_3-\lambda_2\\
+  	\lambda_1\lambda_3(\lambda_1-\lambda_3) & \lambda_3^2-\lambda_1^2 & \lambda_1-\lambda_3\\
+  	\lambda_1\lambda_2(\lambda_2-\lambda_1) & \lambda_1^2-\lambda_2^2 & \lambda_2-\lambda_1\\
  \end{pmatrix},
+\end{aligned}
 $$
-где $\Delta = (\lambda_3-\lambda_1)(\lambda_3-\lambda_2)(\lambda_2-\lambda_1).$
+где $\Delta = \det \mathcal{U} = (\lambda_3-\lambda_1)(\lambda_3-\lambda_2)(\lambda_2-\lambda_1).$ \\
+Теперь запишем проекторы оператора~$A$:
+
+$$
+	\begin{aligned}
+		\mathcal{A} &= \mathcal{U}\mathcal{J}\mathcal{U}^{-1}, \\
+		\mathcal{P}_i &= \mathcal{U}\mathcal{P}_i'\mathcal{U}^{-1}, \\
+		\mathcal{P}_i' &= \left(p_{jk}'\right), \\
+		p_{jk}' &= 
+		\begin{cases}
+			1, & \text{если $j=k=i$;} \\
+			0, & \text{в противном случае.}
+		\end{cases}
+	\end{aligned}
+$$
+где $i,j,k \in \{1,2,3\}, \text{и}\  \mathcal{P}_i'$~--- проекторы жордановой матрицы~$\mathcal{J}$ 
+оператора~$A$. Тогда по теореме о спектральном разложении оператора простой структуры \cite{baskakov}:
+$$
+	\mathcal{A} = \lambda_1\mathcal{P}_1 + \lambda_2\mathcal{P}_2 + \lambda_3\mathcal{P}_3 
+$$
+
+
+Рассмотрим второй случай.		
+Пусть матрица~$\mathcal{A}$ имеет собственные значения~$\lambda_1,~\lambda_2$ 
+которые имеют кратности~$k_1=2,~k_2=1$ соответственно. Тогда жорданова форма матрицы~$\mathcal{A}$ имеет вид:
+$$
+ \mathcal{J} = 
+ \begin{pmatrix}
+  \lambda_1 & 1 & 0\\
+  0 & \lambda_1 & 0 \\
+  0 & 0 & \lambda_2 \\
+ \end{pmatrix}
+$$
+Запишем матрицу перехода~$\mathcal{U}$ и~обратную к~ней~$\mathcal{U}^{-1}$:
+$$
+\begin{aligned}
+ \mathcal{U} &= 
+ \begin{pmatrix}
+  	1 & 0 & 1\\
+  	\lambda_1 & 1 & \lambda_2 \\
+  	\lambda_1^2 & 2\lambda_1 & \lambda_2^2 \\
+ \end{pmatrix}, \\
+ \mathcal{U}^{-1} &= \frac{1}{\Delta} 
+ \begin{pmatrix}
+  	\lambda_2^2-2\lambda_1\lambda_2 & 2\lambda_1 & -1  \\
+  	\lambda_1^2\lambda_2 - \lambda_1\lambda_2^2 & \lambda_2^2 - \lambda_1^2 & \lambda_1 - \lambda_2  \\
+  	\lambda_1^2 & -2\lambda_1 & 1  \\
+ \end{pmatrix},
+\end{aligned}
+$$
+где $\Delta = \det \mathcal{U} = (\lambda_1-\lambda_2)^2$. \\
+!!!Дописать про проекторы!!!
+
+И наконец последний случай.		
+Пусть матрица~$\mathcal{A}$ имеет одно собственное значение~$\lambda$ 
+кратности~$k=3$. Тогда жорданова форма матрицы~$\mathcal{A}$ имеет вид:
+$$
+ \mathcal{J} = 
+ \begin{pmatrix}
+  \lambda & 1 & 0\\
+  0 & \lambda & 1 \\
+  0 & 0 & \lambda \\
+ \end{pmatrix}
+$$
+Запишем матрицу перехода~$\mathcal{U}$ и~обратную к~ней~$\mathcal{U}^{-1}$:
+$$
+\begin{aligned}
+ \mathcal{U} &= 
+ \begin{pmatrix}
+  	1 & 0 & 0\\
+  	\lambda & 1 & 0 \\
+  	\lambda^2 & 2\lambda & 2 \\
+ \end{pmatrix}, \\
+ \mathcal{U}^{-1} &= \frac{1}{\Delta} 
+ \begin{pmatrix}
+  	1 & 0 & 0  \\
+  	-\lambda & 1 & 0  \\
+  	\frac{1}{2}\lambda^2 & -\lambda & \frac{1}{2} \\
+ \end{pmatrix},
+\end{aligned}
+$$
+где $\Delta = \det \mathcal{U} = 2$. \\
+!!!Дописать про проекторы!!!
