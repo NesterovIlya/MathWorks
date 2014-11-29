@@ -93,7 +93,37 @@ $$
 \end{aligned}
 $$
 где $\Delta = \det \mathcal{U} = (\lambda_1-\lambda_2)^2$. \\
-!!!Дописать про проекторы!!!
+Для спектрального разложения найдем проекторы и нильпотентную часть оператора~$\ A$:
+$$
+	\begin{aligned}
+		\mathcal{A} &= \mathcal{U}\mathcal{J}\mathcal{U}^{-1}, \\
+		\mathcal{P}_i &= \mathcal{U}\mathcal{P}_i'\mathcal{U}^{-1}, \\
+		\mathcal{P}_1' = 
+		\begin{pmatrix}
+  			1 & 0 & 0\\
+  			0 & 1 & 0 \\
+  			0 & 0 & 0 \\
+ 		\end{pmatrix}&,\  
+ 		\mathcal{P}_2' =
+		\begin{pmatrix}
+  			0 & 0 & 0\\
+  			0 & 0 & 0 \\
+  			0 & 0 & 1 \\
+ 		\end{pmatrix},\\ 
+ 		\mathcal{Q} &= \mathcal{U}\mathcal{Q}'\mathcal{U}^{-1}, \\
+ 		\mathcal{Q}' &= 
+		\begin{pmatrix}
+  			0 & 1 & 0\\
+  			0 & 0 & 0 \\
+  			0 & 0 & 0 \\
+ 		\end{pmatrix}
+	\end{aligned}
+$$
+где $i \in \{1,2\}, \text{и}\  \mathcal{P}_i', \mathcal{Q}'$~--- проекторы жордановой матрицы~$\mathcal{J}$ 
+оператора~$A$ и её нильпотентная часть соответственно. Тогда по теореме о спектральном разложении линейного оператора \cite{baskakov}:
+$$
+	\mathcal{A} = \lambda_1\mathcal{P}_1 + \lambda_2\mathcal{P}_2 + \mathcal{Q} 
+$$
 
 И наконец последний случай.		
 Пусть матрица~$\mathcal{A}$ имеет одно собственное значение~$\lambda$ 
@@ -124,4 +154,4 @@ $$
 \end{aligned}
 $$
 где $\Delta = \det \mathcal{U} = 2$. \\
-!!!Дописать про проекторы!!!
+Спектральное разложение для этого случая очевидно.
