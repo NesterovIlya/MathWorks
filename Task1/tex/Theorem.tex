@@ -1,0 +1,24 @@
+\section{Теорема}
+\textbf{Теорема~1.}
+{ \it Пусть $\lambda_1, \ldots , \lambda_m$ собственные значения матрицы $\mathcal{A}$ кратностей $k_1, \ldots , k_m$ соответственно. Тогда матрица $\mathcal{A}$ в Жордановом базисе имеет вид:
+$$
+	\mathcal{A} = \begin{pmatrix}
+		\mathcal{J}_1 & 0 & \dots & 0 \\
+		0 & \mathcal{J}_2 & \dots & 0 \\
+		\vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & \dots & \mathcal{J}_m
+	\end{pmatrix}, {\text{где }}
+	\mathcal{J}_i = \begin{pmatrix}
+		\lambda_i & 1 & 0 & \dots & 0 \\
+		0 & \lambda_i & 1 & \dots & 0 \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & 0 & \dots & 1 \\
+		0 & 0 & 0 & \dots & \lambda_i
+	\end{pmatrix}.
+$$
+Векторами столбцами матрицы перехода являются собственные и присоединенные векторы, где собственные векторы имеют вид: 
+$$x^i =(\lambda_i, \ldots, \lambda_i^{n-1}), 1 \leqslant i \leqslant m,$$
+а присоединенные:
+$$y_i^j = (1^{(j)}, \lambda_i^{(j)}, \ldots , (\lambda_i^{n-1})^{(j)}), 1 \leqslant i \leqslant m, 1 \leqslant j \leqslant k_i.$$} 
+
+
