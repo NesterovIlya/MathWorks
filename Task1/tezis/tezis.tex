@@ -20,13 +20,14 @@
 \end{center}\setcounter{equation}{0}%
 }\ifthenelse{\not\equal{#3}{}}{\footnotetext[#1]{#3}}{}%
 \nopagebreak[4]{}}
+\multlinegap=0in
 
 
 \begin{document}
 
 \tezis{ЖОРДАНОВА ФОРМА ДЛЯ ЛОДУ N-ГО ПОРЯДКА}  % Заголовок прописными буквами
 {}% Если нет, то поле оставить пустым {}
-{\me{ Нестеров И.Н., Клочков С.В., Чурсанова А.С.} (Воронеж)} {nesterovilyan@gmail.com}
+{\me{ Нестеров И.Н., Клочков С.В., Чурсанова А.С.} (Воронеж)} {nesterovilyan@gmail.com, klochkov\_s.v@mail.ru}
 
 
 
@@ -70,19 +71,17 @@ $$
 		0 & 0 & 0 & \dots & \lambda_i
 	\end{pmatrix}.
 $$
-Векторами столбцами матрицы перехода являются собственные и присоединенные векторы, где собственные векторы имеют вид: 
-$$x^i =(1, \lambda_i, \ldots, \lambda_i^{n-1}), 1 \leqslant i \leqslant m,$$
-а присоединенные:
-$$y_i^j = (1^{(j)}, \lambda_i^{(j)}, \ldots , (\lambda_i^{n-1})^{(j)}), 1 \leqslant i \leqslant m, 1 \leqslant j \leqslant k_i.$$} 
+Векторами столбцами матрицы перехода являются собственные и присоединенные векторы, которые имеют вид:
+\begin{multline*}
+(1, \lambda_1, \ldots, \lambda_1^{n-1}), (0, 1, \ldots,(n-1)\lambda_1^{n-2}), (0, 0, \ldots, k_1!, \frac{(n-1)!}{(n-k_1)!}\lambda_1^{n-k_1}),\\ 
+\shoveleft{\ldots, (1, \lambda_2, \ldots, \lambda_2^{n-1}), \ldots, (0, 0, \ldots, k_2!, \frac{(n-1)!}{(n-k_2)!}\lambda_2^{n-k_2}), \ldots,} \\
+\shoveleft{ (0, 0, \ldots, k_m!, \frac{(n-1)!}{(n-k_m)!}\lambda_m^{n-k_m})}
+\end{multline*}
 
 
 %%%%  ОФОРМЛЕНИЕ СПИСКА ЛИТЕРАТУРЫ %%%
 \smallskip \centerline{\bf Литература}\nopagebreak
 
-1. \textit{Львовский С. М.} Набор и верстка в системе LATEX. М.:
-МЦНМО, 2003. — 448 с.
-
-2. \textit{ Ульянов П. Л.} О классах бесконечно дифференцируемых
-функций // Матем. сб. - 1990. - Т. 181,  № 5. -  С. 589-609.
+1. \textit{ Боровских А. В., Перов А. И.} Лекции по обыкновенным дифференциальным уравнениям // Москва-Ижевск: НИЦ  <<Регулярная и хаотическая динамика>>, Институт компьютерных исследований, 2004, 540 стр.
 
 \end{document}
