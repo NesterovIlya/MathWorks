@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage[russian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\pagestyle{empty} \textwidth=108mm \textheight=165mm
+\usepackage{calc,ifthen}
+
+\newcommand{\me}[1]{#1\index{#1}}
+
+\newcounter{first}
+
+\newcommand{\tezis}[5][1]{\vbox{\protect\setcounter{first}{\thepage}%
+\begin{center}\textbf{#2}%
+\ifthenelse{\not\equal{#3}{}}{\footnotemark[#1]}{}%
+\\*\textbf{#4}\\*%
+\ifthenelse{\not\equal{#5}{}}{\textit{#5}}{}%
+\end{center}\setcounter{equation}{0}%
+}\ifthenelse{\not\equal{#3}{}}{\footnotetext[#1]{#3}}{}%
+\nopagebreak[4]{}}
+
+
+\begin{document}
+
+\tezis{ЖОРДАНОВА ФОРМА ДЛЯ ЛОДУ N-ГО ПОРЯДКА}  % Заголовок прописными буквами
+{}% Если нет, то поле оставить пустым {}
+{\me{ Нестеров И.Н., Клочков С.В., Чурсанова А.С.} (Воронеж)} {nesterovilyan@gmail.com}
+
+
+
+%%%%%% Текст тезисов  %%%%%%%
+
+Рассматривается линейное однородное дифференциальное уравнение
+$$
+	x^{(n)} = \alpha_{1}x^{(n-1)} + \ldots + \alpha_{n}, 
+$$
+где $\alpha_{k} \in \mathbb{C}, k = \overline{1,n}$. Данное уравнение обычным способом сводится к системе
+линейных дифференциальных уравнений вида
+$$
+	\dot{y} = Ay,
+$$
+где матрица оператора $A$ имеет вид
+$$
+	\mathcal{A} = \begin{pmatrix}
+		0 & 1 & 0 & \dots & 0 \\
+		0 & 0 & 1 & \dots & 0 \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & 0 & \dots & 1 \\
+		\alpha_n & \alpha_{n-1} & \alpha_{n-1} & \dots & \alpha_1
+	\end{pmatrix},
+$$
+а $f(\lambda) = \lambda^{n} - \alpha_{1}\lambda^{n-1} - \ldots - \alpha_{n}, \lambda \in \mathbb{C}$ -- характеристический многочлен этой матрицы.
+
+\textbf{Теорема~1.}
+{ \it Пусть $\lambda_1, \ldots , \lambda_m$ собственные значения матрицы $\mathcal{A}$ кратностей $k_1, \ldots , k_m$ соответственно. Тогда жорданова форма для матрицы $\mathcal{A}$ имеет вид:
+$$
+	\mathcal{J} = \begin{pmatrix}
+		\mathcal{J}_1 & 0 & \dots & 0 \\
+		0 & \mathcal{J}_2 & \dots & 0 \\
+		\vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & \dots & \mathcal{J}_m
+	\end{pmatrix}, {\text{где }}
+	\mathcal{J}_i = \begin{pmatrix}
+		\lambda_i & 1 & 0 & \dots & 0 \\
+		0 & \lambda_i & 1 & \dots & 0 \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & 0 & \dots & 1 \\
+		0 & 0 & 0 & \dots & \lambda_i
+	\end{pmatrix}.
+$$
+Векторами столбцами матрицы перехода являются собственные и присоединенные векторы, где собственные векторы имеют вид: 
+$$x^i =(1, \lambda_i, \ldots, \lambda_i^{n-1}), 1 \leqslant i \leqslant m,$$
+а присоединенные:
+$$y_i^j = (1^{(j)}, \lambda_i^{(j)}, \ldots , (\lambda_i^{n-1})^{(j)}), 1 \leqslant i \leqslant m, 1 \leqslant j \leqslant k_i.$$} 
+
+
+%%%%  ОФОРМЛЕНИЕ СПИСКА ЛИТЕРАТУРЫ %%%
+\smallskip \centerline{\bf Литература}\nopagebreak
+
+1. \textit{Львовский С. М.} Набор и верстка в системе LATEX. М.:
+МЦНМО, 2003. — 448 с.
+
+2. \textit{ Ульянов П. Л.} О классах бесконечно дифференцируемых
+функций // Матем. сб. - 1990. - Т. 181,  № 5. -  С. 589-609.
+
+\end{document}
