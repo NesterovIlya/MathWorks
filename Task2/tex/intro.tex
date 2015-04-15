@@ -1,0 +1,15 @@
+Пусть $A$ --- {\em невозмущенный} линейный оператор, $A\colon D(A) \subset \field{C}^n \to \field{C}^n$, структурные свойства которого хорошо изучены. 
+
+Линейный оператор $B\colon D(B) \subset \field{C}^n \to \field{C}^n$ будем называть {\em возмущением} оператора $A$, если $D(A) \subset D(B) \text{ и } \exists\,C>0\colon \norm{Bx} \leqslant C(\norm{x} + \norm{Ax}) \\ \forall x \in D(A)$, а $A-B$ {\em возмущенным} линейным оператором. Символом $\mathfrak{B}$ будем обозначать множество возмущений оператора $A$.
+
+Поскольку областью определения возмущенного оператора $A-B, B \in \mathfrak{B}$ является область определения $D(A)$ оператора $A$, то будем далее всюду считать, что $D(B) = D(A)\ \forall B \in \mathfrak{B}$. Таким образом $\mathfrak{B}$ можно рассматривать как линейной пространство с нормой $\norm{B}_{\mathfrak{B}} = \inf C,\ C>0$.
+
+Также нам понадобятся $\mathcal{J}\colon \mathfrak{B} \to \mathfrak{B}, \Gamma\colon \mathfrak{B} \to \spaceend \field{C}^n$ --- два трансформатора (т.е. линейные операторы в пространстве линейных операторов), обладающие следующими свойствами:
+\begin{enumerate}
+	\item $(\Gamma X)D(A) \subset D(A)$ и $A\Gamma X - \Gamma X A = X - \mathcal{JX}\ \forall X \in \mathfrak{B}$;
+	\item $(\Gamma X)Y, X\Gamma Y \in \mathfrak{B},\ \forall X,Y \in \mathfrak{B}$ и существует такая постоянная $\gamma > 0$, что $\norm{\Gamma} \leqslant \gamma$ и $\max\{\norm{(\Gamma X)Y},\norm{X\Gamma Y}\} \leqslant \gamma\norm{X}\norm{Y}\ \forall X,Y \in \mathfrak{B}$;
+	\item $\mathcal{J}$ --- проектор и $\mathcal{J}((\Gamma X)\mathcal{J}Y) = \mathcal{J}((\mathcal{J}X)\Gamma Y) = 0\ \forall X,Y \in \mathfrak{B}$;
+\end{enumerate}
+
+Будем искать 
+
