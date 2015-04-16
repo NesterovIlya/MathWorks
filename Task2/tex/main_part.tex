@@ -1,0 +1,55 @@
+
+Будем искать такой оператор $X_0 \in \spaceend\field{C}^n$, чтобы выполнялось равенство
+\begin{equation}\label{eq:som_eq}
+	(A-B)(I + \Gamma X_0) = (I + \Gamma X_0)(A-\mathcal{J}X_0).
+\end{equation}
+При условии $\norm{\Gamma X_0} \leqslant 1$ (тогда оператор $I + \Gamma X_0$ обратим) равенство (\ref{eq:som_eq}) означает подобие операторов $A-B$ и $A-\mathcal{J} X_0$. Преобразуем равенство (\ref{eq:som_eq}):
+\begin{gather}
+	A + A\Gamma X - B - B\Gamma X = A - \mathcal{J}X + \Gamma X A - \Gamma X \mathcal{J}X; \notag \\
+	A\Gamma X - \Gamma X A - B\Gamma X + \mathcal{J}X + \Gamma X \mathcal{J}X - B = 0; \notag \\
+	X - \mathcal{J}X - B\Gamma X + \mathcal{J}X + \Gamma X \mathcal{J}X - B = 0;  \notag \\
+	X = B\Gamma X - \Gamma X \mathcal{J}X + B. \label{eq:x_first}
+\end{gather}
+Применим к уравнению (\ref{eq:x_first}) трансформатор $\mathcal{J}$:
+$$
+	\mathcal{J}X = \mathcal{J}B\Gamma X + \mathcal{J}B,
+$$ 
+и подставим $\mathcal{J}X$ в уравнение (\ref{eq:x_first}). Получаем нелинейное уравнение
+\begin{equation}\label{eq:x_main}
+	X = B\Gamma X - \Gamma X \mathcal{J}(B\Gamma X) - \Gamma X \mathcal{J}B - B = \Phi(X).
+\end{equation}
+
+Пусть $P_1,P_2$ --- проекторы, ассоциированные с указанным в начале разложением пространства $\field{C}^n$. Заметим, что $\forall X \in \spaceend\field{C}^n$ выполняется:
+\begin{enumerate}
+	\item $\mathcal{J}X = P_1 X P_1 + P_2 X P_2;$
+	\item $P_i(\Gamma X)P_j = \Gamma(P_i X P_j),\ i,j = 1,2$, и $P_i(\Gamma X)P_i = 0,\ i = 1,2$.
+\end{enumerate}
+Таким образом пространство $\field{C}^n$ можно представить в виде прямой суммы $\mathfrak{X} = \mathfrak{X}_{11} \oplus \mathfrak{X}_{12} \oplus \mathfrak{X}_{21} \oplus \mathfrak{X}_{22}$ подпространств, где $\mathfrak{X}_{ij} = \{ P_i \mathfrak{X} P_j, X \in \spaceend\field{C}^n \},\\ \ i,j = 1,2$.
+Через $X_{ij}$ будем обозначать оператор $P_i X P_j,\ i,j=1,2$, таким образом $X = (P_1 + P_2)X(P_1 + P_2) = X_{11} + X_{12} + X_{21} + X_{22},\ X \in \spaceend\field{C}^n$.
+Применим операторы $P_1 \text{ и } P_2$ к обеим частям уравнения (\ref{eq:x_main}).
+\begin{enumerate}
+	\item Применим справа и слева проектор $P_1$:
+	\begin{align}
+		P_1 X P_1 &= P_1 B\Gamma X P_1 - P_1\Gamma X \mathcal{J}(B\Gamma X)P_1 - P_1\Gamma X \mathcal{J}B P_1 - P_1 B P_1; \notag \\
+		\begin{split}
+			X_{11} &= (B_{11} + B_{12})(\Gamma X_{11} + \Gamma X_{21}) - \\
+			&- (\Gamma X_{11} + \Gamma X_{12})\mathcal{J}((B_{11} + B_{12})(\Gamma X_{11} + \Gamma X_{21})) - \\
+			&- (\Gamma X_{11} + \Gamma X_{12})(\mathcal{J}B_{11} + \mathcal{J}B_{21}) + B_{11}; \notag
+		\end{split}
+		\intertext{Будем учитывать, что $\mathcal{J}X_{12} = \mathcal{J}X_{21} = 0$ и $\Gamma X_{11} = \Gamma X_{22} = 0$.}
+		\begin{split}
+			X_{11} &= (B_{11} + B_{12})\Gamma X_{21} - \Gamma X_{12}\mathcal{J}((B_{11} + B_{12})\Gamma X_{21}) - \\
+			&- \Gamma X_{12}\mathcal{J}B_{11} + B_{11}; \notag
+		\end{split} \\
+		X_{11} &= B_{12}\Gamma X_{21}  + B_{11};\label{eq:x11}
+	\end{align}
+
+	\item Применим справа проектор $P_1$, а слева $P_2$:
+	\begin{align}
+		P_2 X P_1 &= P_2 B\Gamma X P_1 - P_2\Gamma X \mathcal{J}(B\Gamma X)P_1 - P_2\Gamma X \mathcal{J}B P_1 - P_2 B P_1; \notag \\
+		X_{21} &= (B_{11} + B_{22})\Gamma X_{21} - \Gamma X_{21}\mathcal{J}(B_{12}\Gamma X_{21}) - \Gamma X_{21}B_{11} + B_{21}; \notag \\
+		X_{21} &= B_{22}\Gamma X_{21} - (\Gamma X_{21})B_{12}\Gamma X_{21} - (\Gamma X_{21})B_{11} + B_{21}; \label{eq:x21}
+	\end{align}
+
+\end{enumerate}
+

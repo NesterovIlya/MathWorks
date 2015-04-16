@@ -1,15 +1,72 @@
-Пусть $A$ --- {\em невозмущенный} линейный оператор, $A\colon D(A) \subset \field{C}^n \to \field{C}^n$, структурные свойства которого хорошо изучены. 
+Дан линейный оператор $\mathbb{A} \in \spaceend\field{C}^n$ со своей матрицей $\left( a_{ij} \right)$, внедиагональные элементы которой малы по сравнению с диагональными. Представим оператор $\mathbb{A}$ в виде разности $\mathbb{A} = A-B$ двух линейных операторов $\\A,B \in \spaceend\field{C}^n$, заданных матрицами $\mathcal{A} \text{ и } \mathcal{B}$ соответственно:
 
-Линейный оператор $B\colon D(B) \subset \field{C}^n \to \field{C}^n$ будем называть {\em возмущением} оператора $A$, если $D(A) \subset D(B) \text{ и } \exists\,C>0\colon \norm{Bx} \leqslant C(\norm{x} + \norm{Ax}) \\ \forall x \in D(A)$, а $A-B$ {\em возмущенным} линейным оператором. Символом $\mathfrak{B}$ будем обозначать множество возмущений оператора $A$.
+$$
+	\mathcal{A} = \begin{pmatrix}
+		a_{11} & 0      & \dots  & 0      \\
+		0      & a_{22} & \dots  & 0      \\
+		\vdots & \vdots & \ddots & \vdots \\
+		0      & 0      & \dots  & a_{nn}
+	\end{pmatrix},
+	\qquad
+	\mathcal{B} = -\begin{pmatrix}
+		0      & a_{12} & \dots  & a_{1n} \\
+		a_{21} & 0      & \dots  & a_{2n} \\
+		\vdots & \vdots & \ddots & \vdots \\
+		a_{n1} & a_{n2} & \dots  & 0
+	\end{pmatrix}.
+$$
 
-Поскольку областью определения возмущенного оператора $A-B, B \in \mathfrak{B}$ является область определения $D(A)$ оператора $A$, то будем далее всюду считать, что $D(B) = D(A)\ \forall B \in \mathfrak{B}$. Таким образом $\mathfrak{B}$ можно рассматривать как линейной пространство с нормой $\norm{B}_{\mathfrak{B}} = \inf C,\ C>0$.
+Оператор $A$ будем называть {\em невозмущенным} оператором, оператор $B$ {\em возмущением} оператора $A$, а $\mathbb{A}$ --- возмущенным линейным оператором. Как уже говорилось, элементы матрицы возмущения $\mathcal{B}$ малы по сравнению с элементами невозмущенной матрицы $\mathcal{A}$.
 
-Также нам понадобятся $\mathcal{J}\colon \mathfrak{B} \to \mathfrak{B}, \Gamma\colon \mathfrak{B} \to \spaceend \field{C}^n$ --- два трансформатора (т.е. линейные операторы в пространстве линейных операторов), обладающие следующими свойствами:
+Разложим пространство $\spaceend\field{C}^n$ в прямую сумму $\mathfrak{X}_1 \oplus \mathfrak{X}_2$ инвариантных относительно невозмущенного оператора $A$ подпространств $\mathfrak{X}_1$ и $\mathfrak{X}_2$, где $\mathfrak{X}_1 = \field{C}, \mathfrak{X}_2 = \field{C}^{n-1}$. При этом потребуем, чтобы множества $\sigma_i = \sigma(A_i),\\ i=1,2$ взаимно не пересекались ($A_i = \left. A \right|_{\mathfrak{X}_i}, i=1,2$ --- сужение $A$ на $\mathfrak{X}_i$ и $A = A_1 \oplus A_2$). Для определенности пусть $\mathfrak{X}_1 = \mathcal{L}(e_1)$ --- линейная оболочка, натянутая на базисный вектор $e_1 = (1,0, \dots, 0)$, а $\mathfrak{X}_2 = \mathcal{L}(e_2, \dots, e_n)$.
+
+В соответствии с заданным разложением пространства $\field{C}^n$ будем рассматривать два трансформатора: $\mathcal{J}\colon \spaceend\field{C}^n \to \spaceend\field{C}^n, \Gamma\colon \spaceend\field{C}^n \to \spaceend\field{C}^n$, таких что:
 \begin{enumerate}
-	\item $(\Gamma X)D(A) \subset D(A)$ и $A\Gamma X - \Gamma X A = X - \mathcal{JX}\ \forall X \in \mathfrak{B}$;
-	\item $(\Gamma X)Y, X\Gamma Y \in \mathfrak{B},\ \forall X,Y \in \mathfrak{B}$ и существует такая постоянная $\gamma > 0$, что $\norm{\Gamma} \leqslant \gamma$ и $\max\{\norm{(\Gamma X)Y},\norm{X\Gamma Y}\} \leqslant \gamma\norm{X}\norm{Y}\ \forall X,Y \in \mathfrak{B}$;
-	\item $\mathcal{J}$ --- проектор и $\mathcal{J}((\Gamma X)\mathcal{J}Y) = \mathcal{J}((\mathcal{J}X)\Gamma Y) = 0\ \forall X,Y \in \mathfrak{B}$;
+	\item $\forall X \in \spaceend\field{C}^n$ матрица оператора $\mathcal{J}X$ имеет вид:
+	$$
+		\mathcal{J}X = \begin{pmatrix}
+			x_{11} & 0      & \dots  & 0      \\
+			0      & x_{22} & \dots  & x_{2n} \\
+			\vdots & \vdots & \ddots & \vdots \\
+			0      & x_{n2} & \dots  & x_{nn}
+		\end{pmatrix};
+	$$
+	\item $\Gamma X$ определяется как решение уравнения:
+	\begin{equation}\label{eq:gamma_x_rule}
+		A\Gamma X - \Gamma X A = X - \mathcal{J}X,\qquad \forall X \in \spaceend\field{C}^n.
+	\end{equation}
 \end{enumerate}
 
-Будем искать 
-
+Определим вид матрицы оператора $\Gamma X$. Для этого запишем равенство~(\ref{eq:gamma_x_rule}) для элемента $(i,j)$:
+\begin{equation}\label{eq:gamma_x_elements1}
+	(A\Gamma X)_{ij} - (\Gamma X A)_{ij} = \begin{cases}
+		x_{ij},\qquad i=1 \text{ и } j=2 \dots n; \\
+		x_{ij},\qquad j=1 \text{ и } i=2 \dots n; \\
+		0, \qquad \text{ иначе}.
+	\end{cases}
+\end{equation}
+Пусть $\Gamma X = Y$. Заметим, что $(AY)_{ij} = a_{ii}y_{ij} $. Подставим полученный результат в~формулу~(\ref{eq:gamma_x_elements1}):
+\begin{equation}\label{eq:gamma_x_elements2}
+	a_{ii}y_{ij} - a_{jj}y_{ij} = \begin{cases}
+		x_{ij},\qquad i=1 \text{ и } j=2 \dots n; \\
+		x_{ij},\qquad j=1 \text{ и } i=2 \dots n; \\
+		0, \qquad \text{ иначе}.
+	\end{cases}
+\end{equation}
+Обозначим за $\Omega$ множество $ \{ (i,j)\colon i=1 \text{ и } j = 2 \dots n, \text{ или } j=1 \text{ и }\\ i = 2 \dots n \}$. Тогда
+\begin{equation}\label{eq:gamma_x_elements2}
+	y_{ij} = \begin{cases}
+		\frac{x_{ij}}{a_{ii} - a_{jj}},\qquad (i,j) \in \Omega \\
+		0, \qquad\qquad \text{ иначе}.
+	\end{cases}
+\end{equation}
+Таким образом мы получили, что матрица оператора $\Gamma X$ имеет вид:
+$$
+	\Gamma X = \begin{pmatrix}
+		0                              & \frac{x_{12}}{a_{11}-a_{22}}  & \dots  & \frac{x_{1n}}{a_{11}-a_{nn}}       \\
+		\frac{x_{21}}{a_{22}-a_{11}}   & 0                             & \dots  & 0                                  \\
+		\vdots                         & \vdots                        & \ddots & \vdots \\
+		\frac{x_{n1}}{a_{nn}-a_{11}}   & 0                             & \dots  & 0
+	\end{pmatrix}.
+$$
+Легко заметить, что $\norm{\Gamma X} \leqslant \gamma\norm{X}$, где $\gamma = \frac{1}{\min\limits_{\Omega} \abs{a_{ii} - a_{jj}}}$.
