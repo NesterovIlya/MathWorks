@@ -18,6 +18,52 @@ $$
 \begin{equation}\label{eq:x_main}
 	X = B\Gamma X - \Gamma X \mathcal{J}(B\Gamma X) - \Gamma X \mathcal{J}B - B = \Phi(X).
 \end{equation}
+\noindent\textbf{Теорема~1.}
+{ \it Пусть выполнено неравенство
+$$
+\gamma\norm{B} < \frac{1}{4},
+$$
+тогда нелинейное уравнение \eqref{eq:x_main} имеет единственное решение $X_0$ в шаре с центром в нуле и радиусом $4\norm{B}$, на котором достигается равенство \eqref{eq:som_eq}. $X_0$ можно найти методом простых итераций, если в качестве первого приближения взять $X = 0.$}
+
+\noindent\textbf{Доказательство.}
+Найдем такой шар с центром в точке 0, который отображение $\Phi$ переводит сам в себя, т.е. если $\|X\|<r\|B\|$, то и $\|\Phi(X)\|<r\|B\|$.
+\begin{align*}
+\|\Phi(X)\| &\leq \|B(\Gamma X)-(\Gamma X)(\mathcal{J}B)-(\Gamma X)\mathcal{J}(B\Gamma X)+B\| \leq \\
+&\leq \gamma \|B\|~ \|X\|+\gamma \|B\|~ \|X\|+\gamma^2 \|B\|~ \|X\|^2 + \|B\| \leq \\ 
+&\leq \gamma r \|B\|^2+\gamma r \|B\|^2+\gamma^2 \|B\|^3 r^2 + \|B\| \leq r\|B\|.
+\end{align*}
+Получили квадратное уравнение относительно $r$:
+$$
+r^2 \gamma^2 \|B\|^2 + r (2\gamma \|B\|-1)+1 \leq 0.
+$$
+Пусть $\varepsilon=\gamma \|B\|$, тогда:
+\begin{align*}
+&\varepsilon^2 r^2 + (2 \varepsilon - 1)r + 1 \leq 0, \\  
+&\mathcal{D}=(2\varepsilon-1)^2 - 4\varepsilon^2 = 4\varepsilon^2-4\varepsilon+1-4\varepsilon^2=1-4\varepsilon,
+\end{align*}
+для существования корней необходимо выполнение условия $\mathcal{D}~>~0$, откуда $1~-~4\varepsilon~>~0$, т.е. $\varepsilon~<~\frac{1}{4}$.
+
+Найдем оценку на радиус шара r:
+$$
+r=\frac{1-2\varepsilon\mp\sqrt{1-4\varepsilon}}{2\varepsilon^2};
+$$
+при $\varepsilon=\frac{1}{4}, r=4.$
+Проверим сжимаемость отображения $\Phi$ в этом шаре:
+\begin{align*}
+\|\Phi (X) &- \Phi (Y) \| = \| B\Gamma X - \Gamma X\mathcal{J}B - \Gamma X\mathcal{J}(B\Gamma X) + B - B\Gamma Y + \\ 
+ & \phantom{=} + \Gamma Y\mathcal{J}B + \Gamma Y\mathcal{J}(B\Gamma Y) -B\| = \| B\Gamma (X-Y) - \Gamma (X-Y) \mathcal{J}B - \\
+ & \phantom{=} - \Gamma X\mathcal{J}(B\Gamma X) + \Gamma Y\mathcal{J} (B\Gamma Y) - \Gamma Y\mathcal{J}(B\Gamma X) + \Gamma Y\mathcal{J}(B\Gamma X) \| = \\
+ &= \| B\Gamma(X - Y) - \Gamma (X-Y)\mathcal{J}B - \Gamma (X- Y) \mathcal{J}(B\Gamma X) - \\
+ & \phantom{=} - \Gamma Y\mathcal{J}(B\Gamma (X - Y)) \| \leqslant 2\varepsilon \| X-Y \| + 2\varepsilon ^2 r\| X-Y \| = \\
+ & = (2\varepsilon + 2\varepsilon ^2 r)\| X-Y \| 
+\end{align*}
+Возьмем $r = 4.$ Покажем, что $2\varepsilon + 2\varepsilon ^2 r < 1.$
+$$
+2\varepsilon + 2\varepsilon ^2 4 < 2 \cdot \frac{1}{4} + 2 \cdot \frac{1}{16} 4 = \frac{1}{2} + \frac{1}{8} 4 = 1.
+$$
+
+Тогда получаем, что отображение отображение $\Phi$ переводит шар с центром в нуле и радиусом $4\|B\|$ в себя и является на этом шаре сжимающим отображением, следовательно, существует внутри шара неподвижная точка отображения $\Phi$ , являющаяся единственным решением уравнения \eqref{eq:x_main} и ее можно найти по методу простых итераций, используя в качестве нулевого приближения нулевой оператор. Теорема доказана.
+\hfill
 
 Пусть $P_1,P_2$ --- проекторы, ассоциированные с указанным в начале разложением пространства $\field{C}^n$. Заметим, что $\forall X \in \spaceend\field{C}^n$ выполняется:
 \begin{enumerate}
@@ -55,11 +101,61 @@ $$
 
 Искомую оценку элемента $x_{11}$ оператора $X$, являющегося решением нелинейного уравнения (\ref{eq:x_main}) мы получим, получив оценку $\norm{X_{11}}$. Для оценки $\norm{X_{11}}$ в свою очередь требуется оценка $\norm{X_{21}}$ и разрешимость уравнения (\ref{eq:x21}). Потому сформулируем и докажем следующую теорему:
 
-\noindent\textbf{Теорема~1.}
-{ \it //TODO формулировка теоремы}
+\noindent\textbf{Теорема~2.}
+{ \it Пусть выполнено неравенство
+\begin{align}
+d = \gamma b_{22} + \gamma b_{11} + 2\gamma^2 (b_{12}b_{21})^{\frac{1}{2}} < 1. \label{coef}
+\end{align}
+Тогда нелинейное уравнение \eqref{eq:x21} имеет единственное решение, которое можно найти методом простых итераций, и имеют место следующие оценки:
+\begin{align*}
+&\norm{X_{11} - B_{11}} \leq \frac{2\gamma b_{12}b_{21}}{1 - \gamma b_{22} - \gamma b_{11} + q}
+&\norm{X_{21}} \leq \frac{2b_{21}}{1 - \gamma b_{22} - \gamma b_{11} + q},
+\end{align*}
+где $q = ((\gamma b_{22} + \gamma b_{11} - 1)^2 - 4\gamma b_{21}b_{12})^{\frac{1}{2}}.$}
 
 \noindent\textbf{Доказательство.}
 
-Доказательство теоремы.
+Рассмотрим оператор $\Phi_1(X_{21}),$ определяемый уравнением \ref{eq:x21}. Найдем шар $B(r_1) = \{ X \in  \mathfrak{X}_{21}: \norm{X} < r_1 \}$ из пространства $ \mathfrak{X}_{21},$ который оператор $\Phi_1(X_{21})$ переводит в себя, т.\! е. $\norm{\Phi_1(X_{21})} \leq r_1$ для любого $X \in B(r_1).$ Обозначим $r_1 = rb_{21}.$
+\begin{align*}
+&\norm{\Phi_1(X_{21})} = \norm{B_{22}\Gamma X_{21} - (\Gamma X_{21})B_{12}\Gamma X_{21} - (\Gamma X_{21})B_{11} + B_{21}} \leq \\
+&\leq b_{22}\gamma\norm{X_{21}} + \gamma b_{11}\norm{X_{21}} + \gamma^2 b_{12}\norm{X_{21}}^2 + b_{21} \leq \\ 
+&\leq \gamma b_{22}b_{21}r + \gamma b_{11}b_{21}r + \gamma^2 b_{21}^2 b_{12}r^2 + b_{21} \leq b_{21}r
+\end{align*}
+Получаем неравенство:
+$$
+\gamma^2 b_{21}^2 b_{12}r^2 + (\gamma b_{22} + \gamma b_{11} - 1)r + 1 \leq 0.
+$$
+Покажем что квадратное уравнение относительно $r$
+$$
+\gamma^2 b_{21}^2 b_{12}r^2 + (\gamma b_{22} + \gamma b_{11} - 1)r + 1 = 0
+$$
+имеет хотя бы один действительный положительный корень. Воспользуемся тем, что $\gamma\norm{B} < \frac{1}{4}$ и $b_{ij} \leq \norm{B}.$
+\begin{align*}
+&D = (\gamma b_{22} + \gamma b_{11} - 1)^2 - 4\gamma b_{21}b_{12} \\
+&(\gamma b_{22} + \gamma b_{11} - 1)^2 - 4\gamma^2 b_{21}b_{12} > (1 - \frac{1}{4} - \frac{1}{4}) - 4\cdot\frac{1}{16} = 0
+\end{align*}
+Получаем, что 
+$$
+	r_{1,2} = \frac{1 - \gamma b_{22} - \gamma b_{11} \pm q}{2\gamma^2 b_{21}b_{12}}
+$$
+Рассмотрим решение $r = \frac{1 - \gamma b_{22} - \gamma b_{11} - q}{2\gamma^2 b_{21}b_{12}},$ докажем, что оно больше нуля.
+\begin{align*}
+\frac{1 - \gamma b_{22} - \gamma b_{11} - q}{2\gamma^2 b_{21}b_{12}} = \frac{2}{1 - \gamma b_{22} - \gamma b_{11} + q} > 0
+\end{align*}
+Получаем, что в качестве радиуса шара можно взять число
+$$
+ rb_{21} = \frac{2b_{21}}{1 - \gamma b_{22} - \gamma b_{11} + q}.
+$$
+Для любой пары операторов $Y_1, Y_2$ из шара $B(r_1)$ имеет место оценка
+\begin{align*}
+&\norm{\Phi_1(Y_1) - \Phi_1(Y_2)} = \|B_{22}\Gamma Y_1 - (\Gamma Y_1)B_{12}\Gamma Y_1 - (\Gamma Y_1)B_{11} + B_{21} - \\
+& - B_{22}\Gamma Y_2 + (\Gamma Y_2)B_{12}\Gamma Y_2 + (\Gamma Y_2)B_{11} - B_{21}\| \leq (\gamma b_{22} + \gamma b_{11} + \\
+& + \gamma^2 b_{12}(\norm{Y_1} + \norm{Y_2}))\norm{Y_1 - Y_2} \leq (\gamma b_{22} + \gamma b_{11} + \\ & + \frac{2\gamma^2 (b_{12}b_{21})^{\frac{1}{2}}(1 - \gamma b_{22} - \gamma b_{11})}{1 - \gamma b_{22} - \gamma b_{11} + q})\norm{Y_1 - Y_2} \leq d\norm{Y_1 - Y_2}.
+\end{align*}
+Из условия \eqref{coef} следует, что оператор $\Phi_1$ является оператором сжатия в шаре $B(r_1).$ Тогда уравнение \eqref{eq:x21} имеет единственное решение $X_{21}$ в этом шаре, которое можно найти методом простых итераций. Так как $X_{21}$ принадлежит шару $B(r_1),$ то справедливо неравенство
+\begin{align*}
+\norm{X_{11} - B_{11}} = \norm{B_{12}\Gamma X_{21}} \leq \gamma b_{12} \norm{X_{21}} \leq \frac{2\gamma b_{12}b_{21}}{1 - \gamma b_{22} - \gamma b_{11} + q}.
+\end{align*}
+Теорема доказана.
 \hfill
 
