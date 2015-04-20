@@ -111,7 +111,7 @@ d = \gamma b_{22} + \gamma b_{11} + 2\gamma^2 (b_{12}b_{21})^{\frac{1}{2}} < 1. 
 &\norm{X_{11} - B_{11}} \leq \frac{2\gamma b_{12}b_{21}}{1 - \gamma b_{22} - \gamma b_{11} + q}
 &\norm{X_{21}} \leq \frac{2b_{21}}{1 - \gamma b_{22} - \gamma b_{11} + q},
 \end{align*}
-где $q = ((\gamma b_{22} + \gamma b_{11} - 1)^2 - 4\gamma b_{21}b_{12})^{\frac{1}{2}}.$}
+где $q = ((\gamma b_{22} + \gamma b_{11} - 1)^2 - 4\gamma b_{21}b_{12})^{\frac{1}{2}} \text{ и } \norm{B_{ij}} = b_{ij},\ i,j = 1,2.$}
 
 \noindent\textbf{Доказательство.}
 
@@ -157,5 +157,17 @@ $$
 \norm{X_{11} - B_{11}} = \norm{B_{12}\Gamma X_{21}} \leq \gamma b_{12} \norm{X_{21}} \leq \frac{2\gamma b_{12}b_{21}}{1 - \gamma b_{22} - \gamma b_{11} + q}.
 \end{align*}
 Теорема доказана.
-\hfill
+
+Таким образом мы имеем следующую оценку для $\norm{X_{11}}$
+$$
+	\norm{X_{11}} \leq \frac{2\gamma b_{12}b_{21}}{1 - \gamma b_{22} - \gamma b_{11} + q} + b_{11}.
+$$
+Для получения формулы оценки собственного значения $\lambda_1$ возьмем норму вектора $\norm{x} = \max\limits_i\abs{x_i},\ x \in \field{C}^n,\ i=1 \dots n$, которая в свою очередь порождает норму матриц соответствующих операторам в $\spaceend\field{C}^n$: $\norm{X} = \max\limits_j\sum\limits_i x_{ij},\ X \in \spaceend\field{C}^n,\  i,j=1 \dots n$.
+
+По условию нашей задачи $b_{11}$ равен 0, поэтому получаем следующую оценку $\lambda_1$
+$$
+	\lambda_1 \leq a_{11} + \frac{2\gamma b_{12}b_{21}}{1 - \gamma b_{22} - \gamma b_{11} + ((\gamma b_{22} - 1)^2 - 4\gamma b_{21}b_{12})^{\frac{1}{2}}}.
+$$
+
+
 
