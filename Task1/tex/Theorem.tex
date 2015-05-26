@@ -15,11 +15,22 @@ $$
 		0 & 0 & 0 & \dots & \lambda_i
 	\end{pmatrix}.
 $$
-Векторами столбцами матрицы перехода являются собственные и присоединенные векторы, где собственные векторы имеют вид
-$$x^i =(1, \lambda_i, \ldots, \lambda_i^{n-1}), 1 \leqslant i \leqslant m,$$
-а присоединенные
-$$y_i^j = (1^{(j)}, \lambda_i^{(j)}, \ldots , (\lambda_i^{n-1})^{(j)}), 1 \leqslant i \leqslant m, 1 \leqslant j \leqslant k_i.$$} 
-\textbf{Доказательство.} Пусть $\lambda_i$ - собственное значение матрицы $\mathcal{A}$ кратности~$k_i$. Найдем соответсвующие ему собственный и присоединенные векторы.
+Матрица перехода $\mathcal{U}$ имеет вид
+$$
+\mathcal{U} = \left( \mathcal{U}_1, \mathcal{U}_2, \dots, \mathcal{U}_m \right),
+$$
+где матрицы $\mathcal{U}_i, i=1 \dots m$ имеют вид
+$$
+\mathcal{U}_i = \begin{pmatrix}
+1 & 0 & \dots & 0 \\
+\lambda_i & 1 & \dots & 0 \\ 
+\lambda_i^2 & 2\lambda_i & \dots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+\lambda_i^{n-1} & (n-1)\lambda_i^{n-2} & \dots & \prod_{k=1}^{k_i-1}(n-k)\lambda_i^{n-k_i}
+\end{pmatrix}.
+$$
+}
+\textbf{Доказательство.} Пусть $\lambda_i$ - собственное значение матрицы $\mathcal{A}$ кратности~$k_i$. Найдем соответствующие ему собственный и присоединенные векторы матрицы.
 $$
 \mathcal{A}-\lambda_i I = 
 \begin{pmatrix}
@@ -28,7 +39,7 @@ $$
 	\vdots & \vdots & \vdots & \ddots & \vdots \\
 	0 & 0 & 0 & \dots & 1 \\
 	\alpha_n & \alpha_{n-1} & \alpha_{n-1} & \dots & \alpha_1-\lambda_i
-\end{pmatrix},
+\end{pmatrix}.
 $$ 
 Пусть $x^i \in \mathbb{C}^n$ - собственный вектор, отвечающий собственному значению~$\lambda_i$. Тогда справедливо равенство
 \begin{equation}\label{Equation1}
@@ -44,31 +55,30 @@ $$
 \alpha_n + \alpha_{n-1} x_2 + \dots + (\alpha_1 - \lambda_i) x_n = 0.
 \end{cases}
 \end{equation}
-Решив систему \eqref{SystemForVector} получим
+Решив систему \eqref{SystemForVector}, получим
+$
+x_2=\lambda_i, x_3=\lambda_i^2, \dots, x_{n-1} = \lambda_i^{n-2},
+$
+а число $x_n$ однозначно определяется из последнего уравнения системы~\eqref{SystemForVector}~и~оно равно $\lambda_i^{n-1}$. Таким образом, получено, что собственный вектор, отвечающий собственному значению $\lambda_i$, имеет вид
 $$
 x^i = \left( 1, \lambda_i, \lambda_i ^2, \dots, \lambda_i ^{n-1} \right).
 $$
-Покажем, что найденный $x^i$ удовлетворяет системе \eqref{SystemForVector}. Очевидно, что первые~$n-1$~уравнений справеливы, покажем, что справедливо последнее
-$$
-\alpha_n + \alpha_{n-1} \lambda_i + \dots + (\alpha_1 - \lambda_i) \lambda_i ^{n-1} = 0,
-$$
-так как справа от знака равентсва стоит характеристическое уравнение и $\lambda_i$ - его корень.\\
-Если $k_i \ne 1$, тогда найдем присоединенные.
-Пусть $y^i_j$ - присоединенный вектор. Рассмотрим первый присоединенный вектор $y^i_1$
+Пусть $k_i \ne 1$. Найдем присоединенные векторы. \\
+Пусть $y^i_j \in \mathbb{C}^n,~1~\le~j~\le~k_i-1$~-~присоединенные векторы, отвечающие собственному значению $\lambda_i$. Первый присоединенный вектор $y^i_1$ есть решение уравнения
 \begin{equation}\label{Equation2}
 \left(\mathcal{A}-\lambda_i I \right) y^i_1 = x^i,
 \end{equation}
-где $y^i_1 =  \left( y_1, y_2, \dots, y_n \right)$, $x^i$ - собственный вектор, отвечающий собственному значению $\lambda_i$. Пусть $y_1 = 0$. Тогда равенство \eqref{Equation2} эквивалентно системе:
+где $y^i_1 =  \left( y_1^{(1)}, y_2^{(1)}, \dots, y_n^{(1)} \right)$, $x^i$ - собственный вектор, отвечающий собственному значению $\lambda_i$. Пусть $y_1^{(1)} = 0$. Тогда равенство \eqref{Equation2} эквивалентно системе:
 \begin{equation}\label{SystemForVect}
 \begin{cases}
-y_2 = 1, \\
--\lambda_i y_2 + y_3 = \lambda_i, \\
+y_2^{(1)} = 1, \\
+-\lambda_i y_2^{(1)} + y_3^{(1)} = \lambda_i, \\
 \dots \\
--\lambda_i y_{n-2} + y_{n-1} = \lambda_i ^{n-2}, \\
-\alpha_{n-1} y_2 + \alpha_{n-2} y_3 \dots + (\alpha_1 - \lambda_i ^{n-1}) y_n = \lambda_i ^{n-1}.
+-\lambda_i y_{n-2}^{(1)} + y_{n-1}^{(1)} = \lambda_i ^{n-2}, \\
+\alpha_{n-1} y_2^{(1)} + \alpha_{n-2} y_3^{(1)} \dots + (\alpha_1 - \lambda_i ^{n-1}) y_n^{(1)} = \lambda_i ^{n-1}.
 \end{cases}
 \end{equation}
-Решив систему \eqref{SystemForVect} получим
+Решив систему \eqref{SystemForVect}, получим
 $$
 y^i_1 = \left(0, 1, 2 \lambda_i, 3 \lambda_i ^2, \dots, (n-1)\lambda_i ^{n-2} \right).
 $$
@@ -78,21 +88,29 @@ $$
 \alpha_{n-1} + 2 \alpha_{n-2} \lambda_i + \dots + \alpha_1 (n-1)\lambda_i ^{n-2} - n\lambda_i^{n-1} + \lambda_i ^{n-1} = \lambda_i ^{n-1}, \\
 \alpha_{n-1} + 2 \alpha_{n-2} \lambda_i + \dots + \alpha_1 (n-1)\lambda_i ^{n-2} - n\lambda_i^{n-1} = 0.
 \end{align*}
-Получили следующее $\left.P'(\lambda)\right|_{\lambda_i} = 0$, так как $\lambda_i$ - корень многочлена $P(\lambda)$ кратности $k_i \ne 1$.
-Аналогично можно получить, что 
+Ясно, что $\left.P'(\lambda)\right|_{\lambda_i} = 0$, так как $\lambda_i$ - корень многочлена $P$ кратности $k_i \ne 1$.
+Если $k_i \geqslant 2$, тогда в силу равенства нулю любой производной до $k_i-1$ порядка многочлена $P$ в точке $\lambda_i$, можно показать, что
 $$
-y^i_2 = \left(0, 0, 2, 6 \lambda_i, \dots, (n-1)(n-2)\lambda_i ^{n-3} \right).
+y^i_p = \left(\underbrace{0, \dots, 0}_{\text{p}}, p!, (p+1)! \lambda_i, \dots, \prod_{k=1}^p(n-k)\lambda_i ^{n-p-1} \right).
 $$
-Таким образом, доказано что векторами столбцами матрицы $U$ являются собственные и присоединенные векторы, где собственные векторы имеют вид
-$$x^i =(1, \lambda_i, \ldots, \lambda_i^{n-1}), 1 \leqslant i \leqslant m,$$
-а присоединенные
+Таким образом, доказано что матрица $\mathcal{U}$ составлена из собственных и присоединенных векторов. Поэтому $det(\mathcal{U}) \ne 0$, и, следовательно, матрица $\mathcal{U}$ является матрицей перехода к жордановой форме и имеет вид 
 $$
-y_i^j = (1^{(j)}, \lambda_i^{(j)}, \ldots , (\lambda_i^{n-1})^{(j)}), 1 \leqslant i \leqslant m, 1 \leqslant j \leqslant k_i.
+\mathcal{U} = \left( \mathcal{U}_1, \mathcal{U}_2, \dots, \mathcal{U}_m \right),
 $$
-Поэтому $det(\mathcal{U}) \ne 0$, и, следовательно, матрица $\mathcal{U}$ является матрицей перехода к жордановой форме. Теорема доказана.
+где матрицы $\mathcal{U}_i, i=1 \dots m$ имеют вид
+$$
+\mathcal{U}_i = \begin{pmatrix}
+1 & 0 & \dots & 0 \\
+\lambda_i & 1 & \dots & 0 \\ 
+\lambda_i^2 & 2\lambda_i & \dots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+\lambda_i^{n-1} & (n-1)\lambda_i^{n-2} & \dots & \prod_{k=1}^{k_i-1}(n-k)\lambda_i^{n-k_i}
+\end{pmatrix}.
+$$
+Теорема доказана.
 
 Приведем примеры матрицы $\mathcal{U}$ для двух частных случаев.  \\
-Пусть все собственные значения различны, тогда матрица $\mathcal{U}$ имеет вид
+Пусть все собственные значения матрицы $\mathcal{A}$ различны. Тогда матрица $\mathcal{U}$ имеет вид
 $$
 \mathcal{U} = 
 \begin{pmatrix}
@@ -101,17 +119,17 @@ $$
 	\lambda_1 ^ 2 & \lambda_2 ^2 & \lambda_3 ^2 & \dots & \lambda_n ^2 \\
 	\vdots & \vdots & \vdots & \ddots & \vdots \\
 	\lambda_1 ^{n-1} & \lambda_2 ^{n-1} &\lambda_3 ^{n-1} & \dots & \lambda_n ^{n-1}
-\end{pmatrix},
+\end{pmatrix}.
 $$
-которая является матрицей Вандермонда. \\
-Пусть кратность собственного значения $\lambda$ равна $n$. Тогда матрица $\mathcal{U}$ имеет вид
+Она является матрицей Вандермонда. \\
+Пусть кратность единственного собственного значения $\lambda_0$ равна $n$. Тогда матрица $\mathcal{U}$ имеет вид
 $$
 \mathcal{U} = 
 \begin{pmatrix}
 	1 & 0 & 0 & \dots & 0 \\
-	\lambda & 1 & 0 & \dots & 0 \\
-	\lambda ^ 2 & 2 \lambda & 2 & \dots & 0 \\
+	\lambda_0 & 1 & 0 & \dots & 0 \\
+	\lambda_0 ^ 2 & 2 \lambda_0 & 2 & \dots & 0 \\
 	\vdots & \vdots & \vdots & \ddots & \vdots \\
-	\lambda ^{n-1} & (n-1)\lambda^{n-2} & (n-1)(n-2)\lambda^{n-3} & \dots & (n-1)!
+	\lambda_0 ^{n-1} & (n-1)\lambda_0^{n-2} & (n-1)(n-2)\lambda_0^{n-3} & \dots & (n-1)!
 \end{pmatrix}.
 $$
