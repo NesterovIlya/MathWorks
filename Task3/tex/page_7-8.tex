@@ -1,0 +1,67 @@
+\textbf{Теорема~2.}
+{ \it Пусть выполнено условие
+\begin{equation}
+d = \gamma b_{11} + \tilde{b}_{22} + 2\gamma (b_{12}b_{21})^{1/2} < 1.
+\label{cond_of_simil}
+\end{equation}
+Тогда оператор $A - B$ подобен оператору вида
+\begin{equation*}
+A - \mathcal{P}_1 X \mathcal{P}_1 - \mathcal{P}_2 X \mathcal{P}_2 = A - X_{11} - X_{22},
+\end{equation*}
+где $X$ -- решение уравнения \eqref{eq:x_main}, $X_{ij},\ i,j=1,2$, -- решения соответствующих уравнений \eqref{eq:X_11}-\eqref{eq:X_22}, а оператор
+$U = I + \Gamma X = I + \Gamma X_{12} + \Gamma X_{21}$ является оператором преобразования, причем
+\begin{equation}\label{eq:inverse_U}
+	\begin{split}
+		U^{-1} = I &+ (I - \Gamma X_{21})(I - (\Gamma X_{12})\Gamma X_{21})^{-1}\Gamma X_{12} + \\
+				   &+ (I - \Gamma X_{12})(I - (\Gamma X_{21})\Gamma X_{12})^{-1}\Gamma X_{21}.
+	\end{split}
+\end{equation}
+Кроме того, имеют место следующие оценки:
+\begin{align}
+	\norm{X_{11} - B_{11}} \leqslant \frac{2 b_{21} \tilde b_{12}}{1 - \tilde b_{22}-\gamma b_{11}+q} &\leqslant \frac{2\gamma b_{21}b_{12}}{1-\tilde b_{22} - \gamma b_{11}}; \label{eq:ineq1} \\
+	\norm{X_{22} - B_{22}} \leqslant \frac{2 b_{12} \tilde b_{21}}{1 - \tilde b_{22}-\gamma b_{11}+q} &\leqslant \frac{2\gamma b_{21}b_{12}}{1-\tilde b_{22} - \gamma b_{11}}; \label{eq:ineq2} \\
+	\norm{X_{21} - B_{21}} \leqslant \frac{2 q b_{21}}{1 - \tilde b_{22}-\gamma b_{11}+q} &\leqslant \frac{2 b_{21}}{1-\tilde b_{22} - \gamma b_{11}}; \label{eq:ineq3} \\
+	\norm{X_{12} - B_{12}} \leqslant \frac{2 q b_{12}}{1 - \tilde b_{22}-\gamma b_{11}+q} &\leqslant \frac{2 b_{12}}{1-\tilde b_{22} - \gamma b_{11}}; \label{eq:ineq4} \\
+	\norm{X_{11} - B_{11} - B_{12}\Gamma B_{21}} &\leqslant \frac{2 \tilde b_{12} b_{21} q}{1-\tilde b_{22} - \gamma b_{11}}; \label{eq:ineq5} \\
+	\norm{X_{22} - B_{22} - B_{21}\Gamma B_{12}} &\leqslant \frac{2 b_{12} \tilde b_{21} q}{1-\tilde b_{22} - \gamma b_{11}}, \label{eq:ineq6}
+\end{align}
+где $q = [(1 - \tilde b_{22} - \gamma b_{11})^2 - 4 \gamma b_{12} b_{21}]^{1/2}$.
+}
+
+\textbf{Доказательство.}
+Рассмотрим уравнение \eqref{eq:X_21} и определяемый его правой частью нелинейный оператор $ \Phi_1 \colon \mathfrak{U_{21}} \to \mathfrak{U_{21}}$. Найдем шар 
+$B(r_1) = \left\{ Y \in \mathfrak{U_{21}}\colon \norm{Y} \leqslant r_1 \right\}$ из пространства $\mathfrak{U_{21}}$, который оператор $\Phi_1$ переводит в себя. Определяемый далее радиус шара 
+$r_1$ удобно представить в виде $r_1 = r b_{21}$. Из условия $\norm{\Phi_1(Y)} \leqslant r b_{21}$ для любого $Y \in \mathfrak{U_{21}}$ получаем, что $\Phi_1(B(r_1)) \subset B(r_1)$, если число 
+$r>0$ удовлетворяет неравенству
+\begin{equation*}
+	r \tilde b_{22} b_{21} + r\gamma b_{21} b_{11} + r^2\gamma \tilde b_{12} b_{21}^2 + b_{21} \leqslant r b_{21}.
+\end{equation*}
+Отсюда получаем, что в качестве $r_1$ можно взять число 
+\begin{equation*}
+	r_1 = r b_{21} = \frac{1 - \tilde b_{22} - \gamma b_{11} - q}{2\gamma \tilde b_{12}} = 2 b_{21}(1 - \tilde b_{22} - \gamma b_{11} - q)^{-1}.
+\end{equation*}
+Для любой пары операторов $Y_1,Y_2$ из шара $B(r_1)$ имеют место оценки
+\begin{equation*}
+	\begin{split}
+		\norm{\Phi_1(Y_1) - \Phi_1(Y_2)} &\leqslant (\tilde b_{22} + \gamma b_{11} + 4\gamma^2 b_{12} b_{21} (1 - \tilde b_{22} - \gamma b_{11} + q)^{-1})\norm{Y_1 - Y_2} \leqslant \\
+		&\leqslant \left( \tilde b_{22} + \gamma b_{11} + \frac{2\gamma(b_{12}b_{21})^{1/2} (1 - \tilde b_{22} -\gamma b_{11})}{1 - \tilde b_{22} - \gamma b_{11} + q} \right) \norm{Y_1 - Y_2} \leqslant \\
+		&\leqslant d\norm{Y_1 - Y_2}.
+	\end{split}
+\end{equation*}
+В силу условия \eqref{cond_of_simil} теоремы оператор $\Phi_1$ является оператором сжатия в шаре $B(r_1)$, и поэтому уравнение \eqref{eq:X_21} имеет единственное в шаре $B(r_1)$ решение 
+$X_{21}$, которое можно найти методом простых итераций. Следовательно, уравнение \eqref{eq:X_11} имеет соответствующее решение $X_{11}$. Оценки \eqref{eq:ineq1},\eqref{eq:ineq3},
+\eqref{eq:ineq5} непосредственно следуют из условия принадлежности оператора $X_{21}$ шару $B(r_1)$.
+
+Аналогичные рассуждения применимы к уравнению \eqref{eq:X_12} (и следовательно, к уравнению \eqref{eq:X_22}), с которым связан оператор $\Phi_2 \colon \mathfrak{U_{12}} \to \mathfrak{U_{12}}$.
+Он является оператором сжатия в шаре $B(r_2)$, где $r_2 = 2b_{12}(1 - b_{22} - \gamma b_{11} + q)^{-1}$, что позволяет получить оценки \eqref{eq:ineq2},\eqref{eq:ineq4} и 
+\eqref{eq:ineq6}.
+
+Поскольку $\norm{\Gamma X_{21}}_\infty \norm{\Gamma X_{12}}_\infty \leqslant \gamma^2 r_1 r_2 = 4 \gamma^2 b_{12} b_{21} (1 - \tilde b_{22} - \gamma b_{11} + q)^{-1} \\ < 1$, то операторы
+$I - (\Gamma X_{21})\Gamma X_{12}, I - (\Gamma X_{12})\Gamma X_{21}$ обратимы. Непосредственной проверкой легко убедиться в том, что обратный к 
+$U = I+\Gamma X_{12} + \Gamma X_{21} = I + \Gamma X$ оператор допускает представление вида \eqref{eq:inverse_U}. \textbf{Теорема доказана.}
+
+\textbf{Замечание~2.}
+Преимущество рассмотрения оператора $\tilde A = A - \mathcal{P}_1 X \mathcal{P}_1 - \mathcal{P}_2 X \mathcal{P}_2$ перед оператором $A-B$ состоит в том, что подпространства 
+$\mathcal{X}_i = \im\mathcal{P}_i, i = 1,2$, инвариантны относительно оператора $A$ и поэтому \\ $\tilde A = \tilde A_1 \oplus \tilde A_2$, где 
+$\tilde A_i = A_i - \mathcal{P}_iX | \mathcal{X}_i, i=1,2$ --- сужения $\tilde A$ на $\mathcal{X}_i$. Таким образом, изучение оператора $A-B$ по существу сводится к изучению операторов 
+$\tilde A_1$ и $\tilde A_2$. Например, $\sigma(A-B) = \sigma(\tilde A) = \sigma(\tilde A_1) \cup \sigma(\tilde A_2)$.
