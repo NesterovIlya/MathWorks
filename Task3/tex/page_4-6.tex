@@ -1,0 +1,64 @@
+\textbf{Определение~1.}
+Два линейных оператора ${A_i \colon D(A_i) \subset \mathcal{X} \to \mathcal{X}, i = 1,2}$ ($\mathcal{X}$ -- банахово пространство) называются подобными, если существует обратимый оператор $\mathcal{U} \in \spaceend\mathcal{X},$ такой что $\mathcal{U}D(A_2) = D(A_1)$ и $A_1\mathcal{U}x = \mathcal{U}A_2x$ $\forall x \in D(A_2).$ Оператор $\mathcal{U}$ назовем оператором преобразования оператора $A_1$ в $A_2.$
+
+Символом $A$ будем обозначать невозмущенный линейный оператор \linebreak ${(A \colon D(A) \subset \mathcal{X} \to \mathcal{X}),}$ хорошо изученный с точки зрения интересующих нас структурных свойств. Оператор $B \colon D(B) \subset \mathcal{X} \to \mathcal{X}$ называется подчиненным оператору $A,$ если $D(B) \supset D(A)$ и существует такая постоянная $C > 0,$ что $\|Bx \| \leqslant C(\|x\| + \|Ax\|)~ \forall x \in D(A).$ Множество операторов, подчиненных оператору $A,$ обозначим символом $\mathcal{L}_A (\mathcal{X}).$
+
+Поскольку областью определения возмущенного оператора вида ${A - B,}$ $B \in \mathcal{L}_A (\mathcal{X}),$ является область определения $D(A)$ оператора $A,$ то будем далее всюду считать, что $D(B) = D(A)~ \forall B \in \mathcal{L}_A (\mathcal{X}).$ Такая договоренность позволяет рассматривать $\mathcal{L}_A (\mathcal{X})$ как линейное пространство. Более того, $\mathcal{L}_A (\mathcal{X})$ можно нормировать, если положить $\| B\| _A = \inf C,$ где инфимум берется по всем постоянным $C > 0,$ удовлетворяющим записанному выше неравенству. Нетрудно видеть, что $\mathcal{L}_A (\mathcal{X})$ -- банахово пространство. Символами $\sigma (A)$ и $\rho (A)$ обозначается соответственно спектр и резольвентное множество оператора $A.$
+
+\textbf{Определение~2.}
+Пусть $\mathfrak{U}$ -- линейное многообразие операторов из $\mathcal{L}_A$ и $\mathcal{J} \colon \mathfrak{U}\to \mathfrak{U}, \Gamma \colon \spaceend\mathcal{X}$ -- два трансформатора (т.е. линейные операторы в пространстве операторов). Тройку $(\mathfrak{U}, \mathcal{J}, \Gamma)$ назовем допустимой для оператора $A,$ а $\mathfrak{U}$ -- допустимый пространством возмущений, если 
+\begin{enumerate}
+\item $\mathfrak{U}$ -- банахово пространство (со своей нормой $\| \cdot \|$), непрерывно вложенное в $\mathcal{L}_A(\mathcal{X})$ (т.е. $\| X |\ \geqslant const\| X \|_A \enskip \forall X \in \mathfrak{U}$);
+\item $\mathcal{J}$ и $\Gamma$ -- непрерывные операторы;
+\item $(\Gamma X)D(A) \subset D(A)$ и $A\Gamma X - \Gamma X A = X - \mathcal{J} X \enskip \forall X  \in \mathfrak{U};$
+\item $(\Gamma X)Y, \, X\Gamma Y \in \mathfrak{U} \enskip \forall X, Y \in \mathfrak{U}$ и существует такая постоянная $\gamma > 0,$ что $\| \Gamma \| \leqslant \gamma$ и $\max \{ \| X\Gamma Y \|, \| (\Gamma X)Y \| \} \leqslant \gamma \norm{X} \norm{Y} \enskip \forall X, Y \in \mathfrak{U};$
+\item $\mathcal{J}$ -- проектор и $\mathcal{J}((\Gamma X)\mathcal{J} Y) = 0 \enskip \forall X, Y \in \mathfrak{U};$
+\item $\forall X \in \mathfrak{U} \enskip \forall \varepsilon > 0 \enskip \exists \lambda_0 \in \rho (A),$ что $\norm{X(A - \lambda_0I)-1}_\infty < \varepsilon.$ 
+\end{enumerate}
+
+Пусть $(\mathfrak{U}, \mathcal{J}, \Gamma)$ -- допустимая для оператора $A \colon D(A) \subset \mathcal{X} \to \mathcal{X}$ тройка и $B \in \mathfrak{U}$ -- возмущение оператора $A.$ Будем искать такой оператор $X_0 \in \mathfrak{U},$ чтобы выполнялось равенство
+\begin{equation}
+(A - B)(I + \Gamma X_0) = (I + \Gamma X_0)(A - \mathcal{J} X_0),
+\label{main_eq}
+\end{equation}
+которое при условии $\norm{\Gamma X_0}_\infty < 1$ (влекущего обратимость оператора \linebreak ${U = I + \Gamma X_0}$) означает подобие операторов $A - B$ и $A - \mathcal{J} X_0.$ Нетрудно проверить, что равенство \eqref{main_eq} имеет место, если $X_0$ -- решение нелинейного уравнения вида
+\begin{equation}\label{eq:x_main}
+	X = B\Gamma X - (\Gamma X) \mathcal{J} B - (\Gamma X) \mathcal{J}(B\Gamma X) + B = \Phi(X),
+\end{equation} 
+рассматриваемого в банаховом пространстве $\mathfrak{U}$ допустимый возмущений. Из метода сжимающих отображений, примененного к нелинейному оператору $\Phi \colon \mathfrak{U} \to \mathfrak{U}$ (корректность его определения следует из определения допустимой тройки), получаем, что имеет место
+
+\textbf{Теорема~1.}
+{ \it Если выполнено условие 
+\begin{equation}
+ \gamma \norm{B} \norm{\mathcal{J}} < \frac{1}{4},
+ \label{cond_normB_normJ}
+\end{equation}
+то уравнение \eqref{eq:x_main} имеет решение $X_0,$ для которого выполнено равенство \eqref{main_eq}, причем оператор $I + \Gamma X_0$ обратим.
+}
+
+\textbf{Замечание~1.}
+Построение трансформатора $\Gamma$ обычно осуществляется с помощью трансформатора $ad_A \colon D(ad_A) \subset \spaceend \mathcal{X} \to \spaceend \mathcal{X}$ с областью определения $D(ad_A),$ состоящих из таких операторов  $X_0 \in \spaceend \mathcal{X},$ которые переводят $D(A)$ в $D(A),$ и оператор $AX_0 - X_0A \colon D(A) \to \mathcal{X}$ допускает единственное расширение с $D(A)$ до некоторого оператора $Y_0 \in \spaceend \mathcal{X}$ (и тогда полагается $Y_0 = ad_A X_0$).
+
+Теоремы о расщеплении рассматриваемых здесь дифференциальных операторов получены с помощью выбора специальных допустимых троек, которые строятся в предположении существования разложения банахова пространства $\mathcal{X}$ в прямую сумму $\mathcal{X} = \mathcal{X}_1 \oplus \mathcal{X}_2$ инвариантных относительно не возмущенного оператора $A \colon D(A) \subset \mathcal{X} \to \mathcal{X}$ подпространств $\mathcal{X}_1$ и $\mathcal{X}_2,$ причем множества $\sigma_i = \sigma(A_i), \, i = 1,2,$ взаимно не пересекаются (${A_i = A|\mathcal{X}_i,} \enskip {i = 1,2,}$~ --~ сужение $A$ на $\mathcal{X}_i,$ и будем писать $A = A_1 \oplus A_2$).
+
+Пусть $\mathcal{P}_i, \, i = 1,2,$ -- проекторы, ассоциированные с указанным разложением пространства $\mathcal{X},$ т.е. $\mathcal{X}_i =$ Im$\mathcal{P}_i, \, i = 1,2.$ Отметим, что если одно из множеств $\sigma_i, \, i = 1,2,$ компактно, то $\mathcal{P}_i = P(\sigma_i, A), \, i = 1,2,$ -- проекторы Рисса, построенные по спектральным множествам $\sigma_i, \, i = 1,2.$
+
+\textbf{Определение~3.}
+Допустимая для оператора $A$ тройка $(\mathfrak{U}, \mathcal{J}, \Gamma)$ называется допустимой тройкой теории расщепления операторов, если выполнены следующие свойства:
+\begin{enumerate}
+\item $\mathcal{P}_i X \mathcal{P}_j \in \mathfrak{U}, \, i,j = 1,2,$ для любого $X \in \mathfrak{U},$ и трансформатор $\mathcal{J}$ имеет вид $\mathcal{J}X = \mathcal{P}_1 X \mathcal{P}_1 + \mathcal{P}_2 X \mathcal{P}_2, X \in \mathfrak{U};$
+\item $\mathcal{P}_i (\Gamma X)\mathcal{P}_j = \Gamma (\mathcal{P}_i X \mathcal{P}_j), \, i,j = 1,2$ для любого $X \in \mathfrak{U},$ причем \linebreak $\mathcal{P}_i (\Gamma X)\mathcal{P}_i = 0, \, i = 1,2.$ 
+\end{enumerate}
+
+Рассматриваемые нами допустимые тройки для оператора $A$ удовлетворяют свойствам из определения 3. Это позволяет представить допустимое пространство $\mathfrak{U}$ в виде прямой суммы $\mathfrak{U} = \mathfrak{U}_{11} \oplus \mathfrak{U}_{12} \oplus \mathfrak{U}_{21} \oplus \mathfrak{U}_{22}$ подпространств $\mathfrak{U}_{ij} = \{ \mathcal{P}_i X \mathcal{P}_j \colon X \in \mathfrak{U} \}, \, i,j = 1,2.$ Символом $X_{ij}$ будем обозначать оператор (операторный блок) $\mathcal{P}_i X \mathcal{P}_j$ из $\mathfrak{U}_{ij}, \, i,j = 1,2,$ так что $X = (\mathcal{P}_1 + \mathcal{P}_2) X (\mathcal{P}_1 + \mathcal{P}_2) = X_{11} + X_{12} + X_{21} + X_{22}, X \in \mathfrak{U}.$
+
+Применяя к обеим частям уравнения \eqref{eq:x_main} операторы $\mathcal{P}_1$ и $\mathcal{P}_2$ (справа и слева) и используя условие 2 из определения 3, получаем следующую систему уравнений для блоков $X_{ij}, \, i,j = 1,2,$ оператора $X \in \mathfrak{U}:$
+\begin{align}
+X_{11} &= B_{12}\Gamma X_{21} + B_{11},  \label{eq:X_11} \\
+X_{21} &= B_{22}\Gamma X_{21} - (\Gamma X_{21})B_{11} - (\Gamma X_{21})B_{12}\Gamma X_{21} + B_{21} = \Phi(X_{21}),  \label{eq:X_21} \\
+X_{12} &= B_{11}\Gamma X_{12} - (\Gamma X_{12})B_{22} - (\Gamma X_{12})B_{21}\Gamma X_{12} + B_{12} = \Phi(X_{12}), \label{eq:X_12} \\
+X_{22} &= B_{21}\Gamma X_{12} + B_{22}. \label{eq:X_22}
+\end{align}
+
+Важно отметить, что уравнения \eqref{eq:X_21} и \eqref{eq:X_12} независимы от остальных уравнений и рассматриваются  соответственно в подпространствах $\mathfrak{U}_{21}$ и $\mathfrak{U}_{12}.$ Условия их разрешимости, и, следовательно, также и уравнений \eqref{eq:X_11}, \eqref{eq:X_22}, удобно формулировать, используя следующие величины: $b_{ij} = \norm{B_{ij}}, \,$ ${i,j = 1,2,}$ $\tilde{b}_{12}, \, \tilde{b}_{21}$ -- нормы операторов $X \mapsto B_{12}\Gamma X \colon \mathfrak{U}_{12} \to \mathfrak{U}_{12}, \, X \mapsto B_{21}\Gamma X \colon$\! ${\mathfrak{U}_{21} \to \mathfrak{U}_{21}}$ соответственно и $\tilde{b}_{22}$ -- наибольшая из норм операторов $X \mapsto (\Gamma X)B_{22} \colon$ ${\mathfrak{U}_{12} \to \mathfrak{U}_{12},}$ $X \mapsto B_{22}\Gamma X \colon \mathfrak{U}_{21} \to \mathfrak{U}_{21}.$ Отметим, что $\tilde{b}_{12} \leqslant \gamma b_{12}, \, \tilde{b}_{21} \leqslant \gamma b_{21}.$
+
