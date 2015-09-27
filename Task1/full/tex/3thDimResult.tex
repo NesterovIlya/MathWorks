@@ -1,0 +1,416 @@
+В качестве примера рассмотрим частный случай~$n=3$. Тогда матрица~$\mathcal{A}$ имеет вид:
+$$
+ \mathcal{A} = 
+ \begin{pmatrix}
+  0 & 1 & 0\\
+  0 & 0 & 1 \\
+  \alpha_3 & \alpha_2 & \alpha_1 \\
+ \end{pmatrix}
+$$
+Возможны три варианта: \\
+%\begin{enumerate}
+1) все собственные значения различны; \\
+2) собственные значения $\lambda_1, \lambda_2$ имеют кратности ${k_1=2},~{k_2=1}$ (либо наоборот); \\
+3) матрица $\mathcal{A}$ имеет одно собственное значение $\lambda_0$;        
+%\end{enumerate}
+
+\textbf{Рассмотрим первый случай.} 
+Пусть матрица $\mathcal{A}$ имеет собственные значения $\lambda_1, \lambda_2, \lambda_3$ кратностей~ $k_1=k_2=k_3=1$ соответственно. Оператор $A$ имеет простую структуру. Тогда жорданова форма матрицы~$\mathcal{A}$ имеет вид:
+$$
+ \mathcal{J} = 
+ \begin{pmatrix}
+  \lambda_1 & 0 & 0\\
+  0 & \lambda_2 & 0 \\
+  0 & 0 & \lambda_3 \\
+ \end{pmatrix}
+$$
+Далее запишем матрицу перехода~$\mathcal{U}$ и~обратную к~ней~$\mathcal{U}^{-1}$:
+$$
+\begin{aligned}
+ \mathcal{U} &= 
+ \begin{pmatrix}
+  	1 & 1 & 1\\
+  	\lambda_1 & \lambda_2 & \lambda_3 \\
+  	\lambda_1^2 & \lambda_2^2 & \lambda_3^2 \\
+ \end{pmatrix}, \\
+ \mathcal{U}^{-1} &= \frac{1}{\Delta} 
+ \begin{pmatrix}
+  	\lambda_2\lambda_3(\lambda_3-\lambda_2) & \lambda_2^2-\lambda_3^2 & \lambda_3-\lambda_2\\
+  	\lambda_1\lambda_3(\lambda_1-\lambda_3) & \lambda_3^2-\lambda_1^2 & \lambda_1-\lambda_3\\
+  	\lambda_1\lambda_2(\lambda_2-\lambda_1) & \lambda_1^2-\lambda_2^2 & \lambda_2-\lambda_1\\
+ \end{pmatrix},
+\end{aligned}
+$$
+где $\Delta = \det \mathcal{U} = (\lambda_3-\lambda_1)(\lambda_3-\lambda_2)(\lambda_2-\lambda_1).$ \\
+Рассмотрим проекторы $\mathcal{P}_i'$ жордановой матрицы~$\mathcal{J}$ оператора~$A$, которые имеют вид:
+$$
+\begin{aligned}
+\mathcal{P}_i' &= \left(p_{jk}'\right), \\
+		p_{jk}' &= 
+		\begin{cases}
+			1, & \text{если $j=k=i$;} \\
+			0, & \text{в противном случае.}
+		\end{cases}
+\end{aligned}
+$$
+где $i,j,k \in \{1,2,3\}$.\\
+Теперь запишем проекторы оператора~$A$:
+$$
+	\begin{aligned}
+		\mathcal{P}_i &= \mathcal{U}\mathcal{P}_i'\mathcal{U}^{-1}, 
+	\end{aligned}
+$$
+где $i \in \{1,2,3\}$. \\
+Найдем проектор $\mathcal{P}_1$
+$$
+\mathcal{P}_1 = 
+\frac{1}{\Delta}
+\begin{pmatrix}
+  	1 & 1 & 1\\
+  	\lambda_1 & \lambda_2 & \lambda_3 \\
+  	\lambda_1^2 & \lambda_2^2 & \lambda_3^2 \\
+ \end{pmatrix}
+\begin{pmatrix}
+  	1 & 0 & 0\\
+  	0 & 0 & 0\\
+  	0 & 0 & 0 \\
+ \end{pmatrix}
+\begin{pmatrix}
+  	\lambda_2\lambda_3(\lambda_3-\lambda_2) & \lambda_2^2-\lambda_3^2 & \lambda_3-\lambda_2\\
+  	\lambda_1\lambda_3(\lambda_1-\lambda_3) & \lambda_3^2-\lambda_1^2 & \lambda_1-\lambda_3\\
+  	\lambda_1\lambda_2(\lambda_2-\lambda_1) & \lambda_1^2-\lambda_2^2 & \lambda_2-\lambda_1\\
+ \end{pmatrix},
+$$
+$$
+\mathcal{P}_1 = 
+\frac{1}{\Delta}
+\begin{pmatrix}
+  	1 & 0 & 0\\
+  	\lambda_1 & 0 & 0 \\
+  	\lambda_1^2 & 0 & 0 \\
+ \end{pmatrix}
+\begin{pmatrix}
+  	\lambda_2\lambda_3(\lambda_3-\lambda_2) & \lambda_2^2-\lambda_3^2 & \lambda_3-\lambda_2\\
+  	\lambda_1\lambda_3(\lambda_1-\lambda_3) & \lambda_3^2-\lambda_1^2 & \lambda_1-\lambda_3\\
+  	\lambda_1\lambda_2(\lambda_2-\lambda_1) & \lambda_1^2-\lambda_2^2 & \lambda_2-\lambda_1\\
+ \end{pmatrix},
+$$
+$$
+\mathcal{P}_1 = 
+\frac{1}{\Delta}
+\begin{pmatrix}
+  	\lambda_2\lambda_3(\lambda_3-\lambda_2) & \lambda_2^2-\lambda_3^2 & \lambda_3-\lambda_2\\
+  	\lambda_1\lambda_2\lambda_3(\lambda_3-\lambda_2) & \lambda_1\left(\lambda_2^2-\lambda_3^2\right) & \lambda_1\left(\lambda_3-\lambda_2\right)\\
+  	\lambda_1^2\lambda_2\lambda_3(\lambda_3-\lambda_2) & \lambda_1^2\left(\lambda_2^2-\lambda_3^2\right) & \lambda_1^2\left(\lambda_3-\lambda_2\right)\\
+ \end{pmatrix},
+$$
+где $\Delta = (\lambda_3-\lambda_1)(\lambda_3-\lambda_2)(\lambda_2-\lambda_1).$ \\
+Найдем проектор $\mathcal{P}_2$
+$$
+\mathcal{P}_2 = 
+\frac{1}{\Delta}
+\begin{pmatrix}
+  	1 & 1 & 1\\
+  	\lambda_1 & \lambda_2 & \lambda_3 \\
+  	\lambda_1^2 & \lambda_2^2 & \lambda_3^2 \\
+ \end{pmatrix}
+\begin{pmatrix}
+  	0 & 0 & 0\\
+  	0 & 1 & 0\\
+  	0 & 0 & 0 \\
+ \end{pmatrix}
+\begin{pmatrix}
+  	\lambda_2\lambda_3(\lambda_3-\lambda_2) & \lambda_2^2-\lambda_3^2 & \lambda_3-\lambda_2\\
+  	\lambda_1\lambda_3(\lambda_1-\lambda_3) & \lambda_3^2-\lambda_1^2 & \lambda_1-\lambda_3\\
+  	\lambda_1\lambda_2(\lambda_2-\lambda_1) & \lambda_1^2-\lambda_2^2 & \lambda_2-\lambda_1\\
+ \end{pmatrix},
+$$
+$$
+\mathcal{P}_2 = 
+\frac{1}{\Delta}
+\begin{pmatrix}
+  	0 & 1 & 0\\
+  	0 & \lambda_2 & 0 \\
+  	0 & \lambda_2^2 & 0 \\
+ \end{pmatrix}
+\begin{pmatrix}
+  	\lambda_2\lambda_3(\lambda_3-\lambda_2) & \lambda_2^2-\lambda_3^2 & \lambda_3-\lambda_2\\
+  	\lambda_1\lambda_3(\lambda_1-\lambda_3) & \lambda_3^2-\lambda_1^2 & \lambda_1-\lambda_3\\
+  	\lambda_1\lambda_2(\lambda_2-\lambda_1) & \lambda_1^2-\lambda_2^2 & \lambda_2-\lambda_1\\
+ \end{pmatrix},
+$$
+$$
+\mathcal{P}_2 = 
+\frac{1}{\Delta}
+\begin{pmatrix}
+  	\lambda_1\lambda_3(\lambda_1-\lambda_3) & \lambda_3^2-\lambda_1^2 & \lambda_1-\lambda_3\\
+  	\lambda_1\lambda_2\lambda_3(\lambda_1-\lambda_3) & \lambda_2(\lambda_3^2-\lambda_1^2) & \lambda_2(\lambda_1-\lambda_3)\\
+  	\lambda_1\lambda_2^2\lambda_3(\lambda_1-\lambda_3) & \lambda_2^2(\lambda_3^2-\lambda_1^2) & \lambda_2^2(\lambda_1-\lambda_3)\\
+ \end{pmatrix},
+$$
+где $\Delta = (\lambda_3-\lambda_1)(\lambda_3-\lambda_2)(\lambda_2-\lambda_1).$ \\
+Найдем проектор $\mathcal{P}_3$
+$$
+\mathcal{P}_3 = 
+\frac{1}{\Delta}
+\begin{pmatrix}
+  	1 & 1 & 1\\
+  	\lambda_1 & \lambda_2 & \lambda_3 \\
+  	\lambda_1^2 & \lambda_2^2 & \lambda_3^2 \\
+ \end{pmatrix}
+\begin{pmatrix}
+  	0 & 0 & 0\\
+  	0 & 0 & 0\\
+  	0 & 0 & 1 \\
+ \end{pmatrix}
+\begin{pmatrix}
+  	\lambda_2\lambda_3(\lambda_3-\lambda_2) & \lambda_2^2-\lambda_3^2 & \lambda_3-\lambda_2\\
+  	\lambda_1\lambda_3(\lambda_1-\lambda_3) & \lambda_3^2-\lambda_1^2 & \lambda_1-\lambda_3\\
+  	\lambda_1\lambda_2(\lambda_2-\lambda_1) & \lambda_1^2-\lambda_2^2 & \lambda_2-\lambda_1\\
+ \end{pmatrix},
+$$
+$$
+\mathcal{P}_3 = 
+\frac{1}{\Delta}
+\begin{pmatrix}
+  	0 & 0 & 1\\
+  	0 & 0 & \lambda_3 \\
+  	0 & 0 & \lambda_3^2 \\
+ \end{pmatrix}
+\begin{pmatrix}
+  	\lambda_2\lambda_3(\lambda_3-\lambda_2) & \lambda_2^2-\lambda_3^2 & \lambda_3-\lambda_2\\
+  	\lambda_1\lambda_3(\lambda_1-\lambda_3) & \lambda_3^2-\lambda_1^2 & \lambda_1-\lambda_3\\
+  	\lambda_1\lambda_2(\lambda_2-\lambda_1) & \lambda_1^2-\lambda_2^2 & \lambda_2-\lambda_1\\
+ \end{pmatrix},
+$$
+$$
+\mathcal{P}_3 = 
+\frac{1}{\Delta}
+\begin{pmatrix}
+  	\lambda_1\lambda_2(\lambda_2-\lambda_1) & \lambda_1^2-\lambda_2^2 & \lambda_2-\lambda_1\\
+  	\lambda_1\lambda_2\lambda_3(\lambda_2-\lambda_1) & \lambda_3(\lambda_1^2-\lambda_2^2) & \lambda_3(\lambda_2-\lambda_1)\\
+  	\lambda_1\lambda_2\lambda_3^2(\lambda_2-\lambda_1) & \lambda_3^2(\lambda_1^2-\lambda_2^2) & \lambda_3^2(\lambda_2-\lambda_1)\\
+ \end{pmatrix},
+$$
+где $\Delta = (\lambda_3-\lambda_1)(\lambda_3-\lambda_2)(\lambda_2-\lambda_1).$
+
+Тогда по теореме о спектральном разложении оператора простой структуры [2]:
+$$
+	\mathcal{A} = \lambda_1\mathcal{P}_1 + \lambda_2\mathcal{P}_2 + \lambda_3\mathcal{P}_3 
+$$
+
+\textbf{Рассмотрим второй случай.} 		
+Пусть матрица~$\mathcal{A}$ имеет собственные значения~$\lambda_1,~\lambda_2$ 
+которые имеют кратности~$k_1=2,~k_2=1$ соответственно. Тогда жорданова форма матрицы~$\mathcal{A}$ имеет вид:
+$$
+ \mathcal{J} = 
+ \begin{pmatrix}
+  \lambda_1 & 1 & 0\\
+  0 & \lambda_1 & 0 \\
+  0 & 0 & \lambda_2 \\
+ \end{pmatrix}
+$$
+Запишем матрицу перехода~$\mathcal{U}$ и~обратную к~ней~$\mathcal{U}^{-1}$:
+$$
+\begin{aligned}
+ \mathcal{U} &= 
+ \begin{pmatrix}
+  	1 & 0 & 1\\
+  	\lambda_1 & 1 & \lambda_2 \\
+  	\lambda_1^2 & 2\lambda_1 & \lambda_2^2 \\
+ \end{pmatrix}, \\
+ \mathcal{U}^{-1} &= \frac{1}{\Delta} 
+ \begin{pmatrix}
+  	\lambda_2^2-2\lambda_1\lambda_2 & 2\lambda_1 & -1  \\
+  	\lambda_1^2\lambda_2 - \lambda_1\lambda_2^2 & \lambda_2^2 - \lambda_1^2 & \lambda_1 - \lambda_2  \\
+  	\lambda_1^2 & -2\lambda_1 & 1  \\
+ \end{pmatrix},
+\end{aligned}
+$$
+где $\Delta = \det \mathcal{U} = (\lambda_1-\lambda_2)^2$. \\
+Рассмотрим проекторы $\mathcal{P}_i', i \in \{1,2\}$ жордановой матрицы~$\mathcal{J}$ оператора~$A$ и её нильпотентную часть $\mathcal{Q}'$.
+$$
+\begin{aligned}
+\mathcal{P}_1' = 
+		\begin{pmatrix}
+  			1 & 0 & 0\\
+  			0 & 1 & 0 \\
+  			0 & 0 & 0 \\
+ 		\end{pmatrix}&,\  
+ 		\mathcal{P}_2' =
+		\begin{pmatrix}
+  			0 & 0 & 0\\
+  			0 & 0 & 0 \\
+  			0 & 0 & 1 \\
+ 		\end{pmatrix},\\
+ 		 \mathcal{Q}' &= 
+		\begin{pmatrix}
+  			0 & 1 & 0\\
+  			0 & 0 & 0 \\
+  			0 & 0 & 0 \\
+ 		\end{pmatrix}
+\end{aligned}
+$$
+Теперь запишем проекторы оператора $A$ и нильпотентную часть жордановой матрицы:
+$$
+	\begin{aligned}
+		\mathcal{P}_i &= \mathcal{U}\mathcal{P}_i'\mathcal{U}^{-1}, \\ 
+ 		\mathcal{Q} &= \mathcal{U}\mathcal{Q}'\mathcal{U}^{-1}, 
+	\end{aligned}
+$$
+где $i \in \{1,2\}$. \\
+Найдем проектор $\mathcal{P}_1$
+$$
+\mathcal{P}_1 = 
+\begin{pmatrix}
+  	1 & 0 & 1\\
+  	\lambda_1 & 1 & \lambda_2 \\
+  	\lambda_1^2 & 2\lambda_1 & \lambda_2^2 \\
+\end{pmatrix}
+ \begin{pmatrix}
+  	1 & 0 & 0\\
+  	0 & 1 & 0 \\
+  	0 & 0 & 0 \\
+\end{pmatrix}
+\begin{pmatrix}
+  	\lambda_2^2-2\lambda_1\lambda_2 & 2\lambda_1 & -1  \\
+  	\lambda_1^2\lambda_2 - \lambda_1\lambda_2^2 & \lambda_2^2 - \lambda_1^2 & \lambda_1 - \lambda_2  \\
+  	\lambda_1^2 & -2\lambda_1 & 1  \\
+ \end{pmatrix} 		
+$$
+$$
+\mathcal{P}_1 = 
+\begin{pmatrix}
+  	1 & 0 & 0\\
+  	\lambda_1 & 1 & 0 \\
+  	\lambda_1^2 & 2\lambda_1 & 0 \\
+\end{pmatrix}
+\begin{pmatrix}
+  	\lambda_2^2-2\lambda_1\lambda_2 & 2\lambda_1 & -1  \\
+  	\lambda_1^2\lambda_2 - \lambda_1\lambda_2^2 & \lambda_2^2 - \lambda_1^2 & \lambda_1 - \lambda_2  \\
+  	\lambda_1^2 & -2\lambda_1 & 1  \\
+ \end{pmatrix} 		
+$$
+$$
+\mathcal{P}_1 = 
+\begin{pmatrix}
+  	\lambda_2^2-2\lambda_1\lambda_2 & 2\lambda_1 & -1  \\
+  	-\lambda_1^2\lambda_2 & \lambda_1^2+\lambda_2^2  & - \lambda_2  \\
+  	-\lambda_1^2\lambda_2^2 & 2\lambda_1\lambda_2^2 & \lambda_1^2-1\lambda_1\lambda_2  \\
+ \end{pmatrix} 	
+$$
+Найдем проектор $\mathcal{P}_2$
+$$
+\mathcal{P}_2 = 
+\begin{pmatrix}
+  	1 & 0 & 1\\
+  	\lambda_1 & 1 & \lambda_2 \\
+  	\lambda_1^2 & 2\lambda_1 & \lambda_2^2 \\
+\end{pmatrix}
+ \begin{pmatrix}
+  	0 & 0 & 0\\
+  	0 & 0 & 0 \\
+  	0 & 0 & 1 \\
+\end{pmatrix}
+\begin{pmatrix}
+  	\lambda_2^2-2\lambda_1\lambda_2 & 2\lambda_1 & -1  \\
+  	\lambda_1^2\lambda_2 - \lambda_1\lambda_2^2 & \lambda_2^2 - \lambda_1^2 & \lambda_1 - \lambda_2  \\
+  	\lambda_1^2 & -2\lambda_1 & 1  \\
+ \end{pmatrix} 	
+$$
+$$
+\mathcal{P}_2 = 
+\begin{pmatrix}
+  	0 & 0 & 1\\
+  	0 & 0 & \lambda_2 \\
+  	0 & 0 & \lambda_2^2 \\
+\end{pmatrix}
+\begin{pmatrix}
+  	\lambda_2^2-2\lambda_1\lambda_2 & 2\lambda_1 & -1  \\
+  	\lambda_1^2\lambda_2 - \lambda_1\lambda_2^2 & \lambda_2^2 - \lambda_1^2 & \lambda_1 - \lambda_2  \\
+  	\lambda_1^2 & -2\lambda_1 & 1  \\
+ \end{pmatrix} 
+$$
+$$
+\mathcal{P}_2 = 
+\begin{pmatrix}
+  	\lambda_1^2 & -2\lambda_1 & 1  \\
+  	\lambda_1^2\lambda_2 & -2\lambda_1\lambda_2 & \lambda_2  \\
+  	\lambda_1^2\lambda_2^2 & -2\lambda_1\lambda_2^2 & \lambda_2^2  \\
+ \end{pmatrix} 
+$$
+Найдем нильпотентную часть жордановой матрицы $\mathcal{Q}$
+$$
+\mathcal{Q}=
+\begin{pmatrix}
+  	1 & 0 & 1\\
+  	\lambda_1 & 1 & \lambda_2 \\
+  	\lambda_1^2 & 2\lambda_1 & \lambda_2^2 \\
+\end{pmatrix}
+ \begin{pmatrix}
+  	0 & 1 & 0\\
+  	0 & 0 & 0 \\
+  	0 & 0 & 0 \\
+\end{pmatrix}
+\begin{pmatrix}
+  	\lambda_2^2-2\lambda_1\lambda_2 & 2\lambda_1 & -1  \\
+  	\lambda_1^2\lambda_2 - \lambda_1\lambda_2^2 & \lambda_2^2 - \lambda_1^2 & \lambda_1 - \lambda_2  \\
+  	\lambda_1^2 & -2\lambda_1 & 1  \\
+ \end{pmatrix}
+$$
+$$
+\mathcal{Q}=
+ \begin{pmatrix}
+  	0 & 1 & 0\\
+  	0 & \lambda_1 & 0 \\
+  	0 & \lambda_1^2 & 0 \\
+\end{pmatrix}
+\begin{pmatrix}
+  	\lambda_2^2-2\lambda_1\lambda_2 & 2\lambda_1 & -1  \\
+  	\lambda_1^2\lambda_2 - \lambda_1\lambda_2^2 & \lambda_2^2 - \lambda_1^2 & \lambda_1 - \lambda_2  \\
+  	\lambda_1^2 & -2\lambda_1 & 1  \\
+ \end{pmatrix}
+$$
+$$
+\mathcal{Q}=
+\begin{pmatrix}
+  	\lambda_1^2\lambda_2 - \lambda_1\lambda_2^2 & \lambda_2^2 - \lambda_1^2 & \lambda_1 - \lambda_2  \\
+  	\lambda_1(\lambda_1^2\lambda_2 - \lambda_1\lambda_2^2) & \lambda_1(\lambda_2^2 - \lambda_1^2) & \lambda_1(\lambda_1 - \lambda_2)  \\
+  	\lambda_1^2(\lambda_1^2\lambda_2 - \lambda_1\lambda_2^2) & \lambda_1^2(\lambda_2^2 - \lambda_1^2) & \lambda_1^2(\lambda_1 - \lambda_2)  \\
+ \end{pmatrix}
+$$
+
+Тогда по теореме о спектральном разложении линейного оператора [2]:
+$$
+	\mathcal{A} = \lambda_1\mathcal{P}_1 + \lambda_2\mathcal{P}_2 + \mathcal{Q}.
+$$
+
+\textbf{Рассмотрим третий случай.}	
+Пусть матрица~$\mathcal{A}$ имеет одно собственное значение~$\lambda$ 
+кратности~$k=3$. Тогда жорданова форма матрицы~$\mathcal{A}$ имеет вид:
+$$
+ \mathcal{J} = 
+ \begin{pmatrix}
+  \lambda & 1 & 0\\
+  0 & \lambda & 1 \\
+  0 & 0 & \lambda \\
+ \end{pmatrix}
+$$
+Запишем матрицу перехода~$\mathcal{U}$ и~обратную к~ней~$\mathcal{U}^{-1}$:
+$$
+\begin{aligned}
+ \mathcal{U} &= 
+ \begin{pmatrix}
+  	1 & 0 & 0\\
+  	\lambda & 1 & 0 \\
+  	\lambda^2 & 2\lambda & 2 \\
+ \end{pmatrix}, \\
+ \mathcal{U}^{-1} &= \frac{1}{2} 
+ \begin{pmatrix}
+  	1 & 0 & 0  \\
+  	-\lambda & 1 & 0  \\
+  	\frac{1}{2}\lambda^2 & -\lambda & \frac{1}{2} \\
+ \end{pmatrix}.
+\end{aligned}
+$$
+Спектральное разложение для этого случая очевидно.

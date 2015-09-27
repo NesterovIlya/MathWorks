@@ -1,0 +1,40 @@
+Рассмотрим задачу построения последовательности $x : \mathbb{N} \rightarrow \mathbb{C}$, для которой известны первые $n \ge 1$ членов $x(1) = x_1^0, \dots, x(n) = x_n^0$ и все последующие задаются реккурентными соотношениями
+\begin{equation}\label{Relation}
+x(m+n) = \alpha_1 x(m+n-1) + \alpha_2 x(m+n-2) + \dots + \alpha_n x(m), m \ge 1,
+\end{equation}
+где $\alpha_1, \dots, \alpha_n$ - известные числа из $\mathbb{C}$.
+Введем в рассмотрение последовательность $x_k : \mathbb{N} \rightarrow \mathbb{C}, 1 \le k \le n$, определенные равенствами
+\begin{align*}
+x_1(m) &= x(m), \\
+x_2(m) &= x(m+1), \\
+\dots \\
+x_n(m) &= x(m+n), n \ge 1.
+\end{align*}
+Используя \eqref{Relation}, получаем, что такие последовательности связаны друг с другом равенствами
+\begin{equation}\label{Equality}
+\begin{aligned}
+x_1(m+1) &= x_2(m), \\
+x_2(m+1) &= x_3(m), \\
+\dots \\
+x_n(m+1) &= \alpha_n x_1(m) + \alpha_{n-1} x_2(m)+ \dots + \alpha_1 x_n(m), m \ge 1.
+\end{aligned}
+\end{equation}
+Рассмотрим последовательность $y: \mathbb{Z} \rightarrow \mathbb{C}^n$ вида
+$$
+y(m) = (x_1(m), \dots, x_n(m)), m \ge 1.
+$$
+Из \eqref{Equality} следует, что для нее верны равенства 
+\begin{equation}\label{Sequence}
+y(m+1) = A y(m), m \ge 1,
+\end{equation}
+где оператор $A: \mathbb{C}^n \to \mathbb{C}^n$ определен с помощью матрицы 
+$$
+	\mathcal{A} = \begin{pmatrix}
+		0 & 1 & 0 & \dots & 0 \\
+		0 & 0 & 1 & \dots & 0 \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & 0 & \dots & 1 \\
+		\alpha_n & \alpha_{n-1} & \alpha_{n-1} & \dots & \alpha_1
+	\end{pmatrix},
+$$
+а $P(\lambda) = \lambda^{n} - \alpha_{1}\lambda^{n-1} - \ldots - \alpha_{n}, \lambda \in \mathbb{C}$ -- характеристический многочлен этой матрицы.
