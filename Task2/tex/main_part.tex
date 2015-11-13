@@ -160,13 +160,36 @@ $$
 
 Таким образом мы имеем следующую оценку для $\norm{X_{11}}$
 $$
-	\norm{X_{11}} \leq \frac{2\gamma b_{12}b_{21}}{1 - \gamma b_{22} - \gamma b_{11} + q} + b_{11}.
+	\norm{X_{11}} \leq \frac{2\gamma b_{12}b_{21}}{1 - \gamma b_{22} - \gamma b_{11} + q} + b_{11},
 $$
-Для получения формулы оценки собственного значения $\lambda_1$ возьмем норму вектора $\norm{x} = \max\limits_i\abs{x_i},\ x \in \field{C}^n,\ i=1 \dots n$, которая в свою очередь порождает норму матриц соответствующих операторам в $\spaceend\field{C}^n$: $\norm{X} = \max\limits_j\sum\limits_i x_{ij},\ X \in \spaceend\field{C}^n,\  i,j=1 \dots n$.
+где $\gamma = \frac{1}{\min\limits_{\Omega} \abs{a_{ii} - a_{jj}}}, \Omega = \{ (i,j)\colon i=1 \text{ и } j = 2 \dots n, \text{ или } j=1 \text{ и }\\ i = 2 \dots n \}, q = ((\gamma b_{22} + \gamma b_{11} - 1)^2 - 4\gamma b_{21}b_{12})^{\frac{1}{2}}, b_{ij} = \norm{B_{ij}}, i,j=1 \dots n$ 
 
-По условию нашей задачи $b_{11}$ равен 0, поэтому получаем следующую оценку $\lambda_1$
+Выпишем формулу оценки собственного значения $\lambda_1$ для разный норм вектора $x \in \field{C}^n.$
+
+Пусть норма вектора $x \in \field{C}^n$ равна
 $$
-	\abs{\lambda_1} \leq \abs{a_{11}} + \frac{2\gamma b_{12}b_{21}}{1 - \gamma b_{22} - \gamma b_{11} + ((\gamma b_{22} - 1)^2 - 4\gamma b_{21}b_{12})^{\frac{1}{2}}}.
+	\norm{x} = \max\limits_{1 \leqslant i \leqslant n}\abs{x_i},
+$$ 
+которая в свою очередь порождает норму матриц соответствующих операторам $X \in \spaceend\field{C}^n$
+$$
+	\norm{X} = \max\limits_{1 \leqslant j \leqslant n}\sum\limits_{i = 1}^{n} \abs{x_{ij}}.
+$$
+Учитывая, что по условию нашей задачи $b_{11}$ равен 0, получаем следующую оценку $\lambda_1$
+$$
+	\abs{\lambda_1 - {a_{11}}} \leq \frac{ 2\gamma \max\limits_{2 \leqslant j \leqslant n}\abs{a_{1j}} \sum\limits_{i = 2}^{n} \abs{a_{i1}} }{ 1 - \gamma \max\limits_{2 \leqslant j \leqslant n}\sum\limits_{i = 2}^{n} \abs{a_{ij}} + ((\gamma \max\limits_{2 \leqslant j \leqslant n}\sum\limits_{i = 2}^{n} \abs{a_{ij}} - 1)^2 - 4\gamma \max\limits_{2 \leqslant j \leqslant n}\abs{a_{1j}} \sum\limits_{i = 2}^{n} \abs{a_{i1}})^{\frac{1}{2}} }.
+$$
+
+Далее пусть норма вектора $x \in \field{C}^n$ равна
+$$
+	\norm{x} = \sum\limits_{i = 1}^{n}\abs{x_i},
+$$
+она порождает норму матриц соответствующих операторам $X \in \spaceend\field{C}^n$
+$$
+	\norm{X} = \max\limits_{1 \leqslant i \leqslant n}\sum\limits_{j = 1}^{n} \abs{x_{ij}}.
+$$ 
+Тогда получаем, следующую оценку
+$$
+	\abs{\lambda_1 - {a_{11}}} \leq \frac{ 2\gamma \sum\limits_{j = 2}^{n}\abs{a_{1j}} \max\limits_{2 \leqslant i \leqslant n}\abs{a_{i1}} }{ 1 - \gamma \max\limits_{2 \leqslant i \leqslant n}\sum\limits_{j = 2}^{n} \abs{a_{ij}} + ((\gamma \max\limits_{2 \leqslant i \leqslant n}\sum\limits_{j = 2}^{n} \abs{a_{ij}} - 1)^2 - 4\gamma \sum\limits_{j = 2}^{n}\abs{a_{1j}} \max\limits_{2 \leqslant i \leqslant n}\abs{a_{i1}})^{\frac{1}{2}} }.
 $$
 
 
