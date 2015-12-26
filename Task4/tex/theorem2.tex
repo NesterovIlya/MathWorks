@@ -1,0 +1,124 @@
+
+Пусть $P_1, P_2$ -- проекторы относительно разложения пространства $\mathfrak{X} = \mathfrak{X}_1 \oplus \mathfrak{X}_2$. 
+Заметим, что $\forall X \in \spaceend\mathfrak{X}$ выполняется:
+\begin{enumerate}
+	\item $\mathcal{J}X = P_1 X P_1 + P_2 X P_2;$
+	\item $P_i(\Gamma X)P_j = \Gamma(P_i X P_j),\ i,j = 1,2$, и $P_i(\Gamma X)P_i = 0,\ i = 1,2$.
+\end{enumerate}
+Таким образом пространство $\mathfrak{X}$ можно представить в виде прямой суммы $\mathfrak{X} = \mathfrak{X}_{11} \oplus \mathfrak{X}_{12} \oplus \mathfrak{X}_{21} \oplus \mathfrak{X}_{22}$ подпространств, где $\mathfrak{X}_{ij} = \{ P_i \mathfrak{X} P_j, X \in \spaceend\mathfrak{X} \},\\ \ i,j = 1,2$.
+Через $X_{ij}$ будем обозначать оператор $P_i X P_j,\ i,j=1,2$, таким образом $X = (P_1 + P_2)X(P_1 + P_2) = X_{11} + X_{12} + X_{21} + X_{22},\ X \in \spaceend\mathfrak{X}$.
+Применим операторы $P_1 \text{ и } P_2$ к обеим частям уравнения (\ref{eq:x_main}).
+\begin{enumerate}
+	\item Применим справа и слева проектор $P_1$:
+	\begin{align}
+		P_1 X P_1 &= P_1 B\Gamma X P_1 - P_1\Gamma X \mathcal{J}(B\Gamma X)P_1 - P_1 B P_1; \notag \\
+		\begin{split}
+			X_{11} &= (B_{11} + B_{12})(\Gamma X_{11} + \Gamma X_{21}) - \\
+			&- (\Gamma X_{11} + \Gamma X_{12})\mathcal{J}((B_{11} + B_{12})(\Gamma X_{11} + \Gamma X_{21})) + B_{11}; \notag
+		\end{split}
+		\intertext{Будем учитывать, что $\mathcal{J}X_{12} = \mathcal{J}X_{21} = 0$, $\Gamma X_{11} = \Gamma X_{22} = 0$ 
+		и $B_{11} = B_{22} = 0$.}
+		X_{11} &= B_{12}\Gamma X_{21};\label{eq:x11}
+	\end{align}
+
+	\item Применим справа проектор $P_1$, а слева $P_2$:
+	\begin{align}
+		P_2 X P_1 &= P_2 B\Gamma X P_1 - P_2\Gamma X \mathcal{J}(B\Gamma X)P_1 - P_2 B P_1; \notag \\
+		X_{21} &= (B_{11} + B_{22})\Gamma X_{21} - \Gamma X_{21}\mathcal{J}(B_{12}\Gamma X_{21}) - \Gamma X_{21}B_{11} + B_{21}; \notag \\
+		X_{21} &= - (\Gamma X_{21})B_{12}\Gamma X_{21} + B_{21}; \label{eq:x21}
+	\end{align}
+
+\end{enumerate}
+
+Искомую оценку элемента $x_{11}$ оператора $X$, являющегося решением нелинейного уравнения (\ref{eq:x_main}) мы получим, получив оценку $\norm{X_{11}}$. Для оценки $\norm{X_{11}}$ в свою очередь требуется оценка $\norm{X_{21}}$ и разрешимость уравнения (\ref{eq:x21}). Потому сформулируем и докажем следующую теорему:
+
+\noindent\textbf{Теорема~2.}
+{ \it Пусть выполнено неравенство
+\begin{align}
+d = 2\gamma^2 (b_{12}b_{21})^{\frac{1}{2}} < 1. \label{coef}
+\end{align}
+Тогда нелинейное уравнение \eqref{eq:x21} имеет единственное решение, которое можно найти методом простых итераций, и имеют место следующие оценки:
+\begin{align*}
+&\norm{X_{11} - B_{11}} \leq \frac{2\gamma b_{12}b_{21}}{1 + (1 - 4\gamma^2 b_{21}b_{12})^{\frac{1}{2}}}
+&\norm{X_{21}} \leq \frac{2b_{21}}{1 + (1 - 4\gamma^2 b_{21}b_{12})^{\frac{1}{2}}},
+\end{align*}
+где $\norm{B_{ij}} = b_{ij},\ i,j = 1,2.$}
+
+\noindent\textbf{Доказательство.}
+
+Рассмотрим оператор $\Phi_1(X_{21}),$ определяемый уравнением \ref{eq:x21}. Найдем шар $B(r_1) = \{ X \in  \mathfrak{X}_{21}: \norm{X} < r_1 \}$ из пространства $ \mathfrak{X}_{21},$ который оператор $\Phi_1(X_{21})$ переводит в себя, т.\! е. $\norm{\Phi_1(X_{21})} \leq r_1$ для любого $X \in B(r_1).$ Обозначим $r_1 = rb_{21}.$
+\begin{align*}
+&\norm{\Phi_1(X_{21})} = - (\Gamma X_{21})B_{12}\Gamma X_{21} + B_{21} \leq \\
+&\leq \gamma^2 b_{12}\norm{X_{21}}^2 + b_{21} \leq \\ 
+&\leq \gamma^2 b_{21}^2 b_{12}r^2 + b_{21} \leq b_{21}r
+\end{align*}
+Получаем неравенство:
+$$
+\gamma^2 b_{21}^2 b_{12}r^2 - r + 1 \leq 0.
+$$
+Покажем что квадратное уравнение относительно $r$
+$$
+\gamma^2 b_{21}^2 b_{12}r^2 - r + 1 = 0
+$$
+имеет хотя бы один действительный положительный корень. Воспользуемся тем, что $\gamma\norm{B} < \frac{1}{3}$ и $b_{ij} \leq \norm{B}.$
+\begin{align*}
+&D = 1 - 4\gamma^2 b_{21}b_{12}; \\
+&1 - 4\gamma^2 b_{21}b_{12} > 1 - 4\cdot\frac{1}{9} = 0
+\end{align*}
+Получаем, что 
+$$
+	r_{1,2} = \frac{1 \pm (1 - 4\gamma^2 b_{21}b_{12})^{\frac{1}{2}}}{2\gamma^2 b_{21}b_{12}}
+$$	
+Рассмотрим решение $r = \frac{1 - (1 - 4\gamma^2 b_{21}b_{12})^{\frac{1}{2}}}{2\gamma^2 b_{21}b_{12}},$ докажем, что оно больше нуля.
+\begin{align*}
+\frac{1 - (1 - 4\gamma^2 b_{21}b_{12})^{\frac{1}{2}}}{2\gamma^2 b_{21}b_{12}} = \frac{2}{1 + (1 - 4\gamma^2 b_{21}b_{12})^{\frac{1}{2}}} > 0
+\end{align*}
+Получаем, что в качестве радиуса шара можно взять число
+$$
+ rb_{21} = \frac{2b_{21}}{1 + (1 - 4\gamma^2 b_{21}b_{12})^{\frac{1}{2}}}.
+$$
+Для любой пары операторов $Y_1, Y_2$ из шара $B(r_1)$ имеет место оценка
+\begin{align*}
+&\norm{\Phi_1(Y_1) - \Phi_1(Y_2)} = \|- (\Gamma Y_1)B_{12}\Gamma Y_1 + B_{21} + \\
+& + (\Gamma Y_2)B_{12}\Gamma Y_2 - B_{21}\| \leq (\gamma^2 b_{12}(\norm{Y_1} + \\
+& + \norm{Y_2}))\norm{Y_1 - Y_2} \leq (\frac{2\gamma^2 (b_{12}b_{21})^{\frac{1}{2}}}{1 + (1 - 4\gamma^2 b_{21}b_{12})^{\frac{1}{2}}})\norm{Y_1 - Y_2} \leq d\norm{Y_1 - Y_2}.
+\end{align*}
+Из условия \eqref{coef} следует, что оператор $\Phi_1$ является оператором сжатия в шаре $B(r_1).$ Тогда уравнение \eqref{eq:x21} имеет единственное решение $X_{21}$ в этом шаре, которое можно найти методом простых итераций. Так как $X_{21}$ принадлежит шару $B(r_1),$ то справедливо неравенство
+\begin{align*}
+\norm{X_{11} - B_{11}} = \norm{B_{12}\Gamma X_{21}} \leq \gamma b_{12} \norm{X_{21}} \leq \frac{2\gamma b_{12}b_{21}}{1 + (1 - 4\gamma^2 b_{21}b_{12})^{\frac{1}{2}}}.
+\end{align*}
+Теорема доказана.
+
+Таким образом мы имеем следующую оценку для $\norm{X_{11}}$
+$$
+	\norm{X_{11}} \leq \frac{2\gamma b_{12}b_{21}}{1 + (1 - 4\gamma^2 b_{21}b_{12})^{\frac{1}{2}}} \leq \frac{1}{2\gamma} - \frac{1 - (1 - 4\gamma^2 b_{21}b_{12})^{\frac{1}{2}}}{4\gamma^2 b_{21}b_{12}},
+$$
+где $\gamma = \norm{(\alpha I - B)^{-1}}, b_{ij} = \norm{B_{ij}}, i,j=1,2$ 
+
+%Выпишем формулу оценки собственного значения $\lambda_1$ для разный норм вектора $x \in \field{C}^n.$
+
+%Пусть норма вектора $x \in \field{C}^n$ равна
+%$$
+%	\norm{x} = \max\limits_{1 \leqslant i \leqslant n}\abs{x_i},
+%$$ 
+%которая в свою очередь порождает норму матриц соответствующих операторам $X \in \spaceend\field{C}^n$
+%$$
+%	\norm{X} = \max\limits_{1 \leqslant j \leqslant n}\sum\limits_{i = 1}^{n} \abs{x_{ij}}.
+%$$
+%Учитывая, что по условию нашей задачи $b_{11}$ равен 0, получаем следующую оценку $\lambda_1$
+%$$
+%	\abs{\lambda_1 - {a_{11}}} \leq \frac{ 2\gamma \max\limits_{2 \leqslant j \leqslant n}\abs{a_{1j}} \sum\limits_{i = 2}%^{n} \abs{a_{i1}} }{ 1 - \gamma \max\limits_{2 \leqslant j \leqslant n}\sum\limits_{i = 2}^{n} \abs{a_{ij}} + ((\gamma \max\limits_{2 \leqslant j \leqslant n}\sum\limits_{i = 2}^{n} \abs{a_{ij}} - 1)^2 - 4\gamma \max\limits_{2 \leqslant j \leqslant n}\abs{a_{1j}} \sum\limits_{i = 2}^{n} \abs{a_{i1}})^{\frac{1}{2}} }.
+%$$
+
+%Далее пусть норма вектора $x \in \field{C}^n$ равна
+%$$
+%	\norm{x} = \sum\limits_{i = 1}^{n}\abs{x_i},
+%$$
+%она порождает норму матриц соответствующих операторам $X \in \spaceend\field{C}^n$
+%$$
+%	\norm{X} = \max\limits_{1 \leqslant i \leqslant n}\sum\limits_{j = 1}^{n} \abs{x_{ij}}.
+%$$ 
+%Тогда получаем, следующую оценку
+%$$
+%	\abs{\lambda_1 - {a_{11}}} \leq \frac{ 2\gamma \sum\limits_{j = 2}^{n}\abs{a_{1j}} \max\limits_{2 \leqslant i \leqslant %n}\abs{a_{i1}} }{ 1 - \gamma \max\limits_{2 \leqslant i \leqslant n}\sum\limits_{j = 2}^{n} \abs{a_{ij}} + ((\gamma \max\limits_{2 \leqslant i \leqslant n}\sum\limits_{j = 2}^{n} \abs{a_{ij}} - 1)^2 - 4\gamma \sum\limits_{j = 2}^{n}\abs{a_{1j}} \max\limits_{2 \leqslant i \leqslant n}\abs{a_{i1}})^{\frac{1}{2}} }.
+%$$
