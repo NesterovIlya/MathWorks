@@ -1,0 +1,73 @@
+
+Будем искать такой оператор $X_0 \in \mathcal{U}$, чтобы выполнялось равенство
+\begin{equation}\label{eq:som_eq}
+	(\mathcal{A}-\mathcal{B})(I + \Gamma X_0) = (I + \Gamma X_0)(\mathcal{A}-\mathcal{J}X_0).
+\end{equation}
+При условии $\norm{\Gamma X_0} \leqslant 1$ (тогда оператор $I + \Gamma X_0$ обратим) равенство (\ref{eq:som_eq}) означает подобие операторов $\mathcal{A}-\mathcal{B}$ и $\mathcal{A}-\mathcal{J}X_0$. Таким образом задача оценки первого собственного значения возмущенного оператора $\mathcal{A}-\mathcal{B}$ сводится к задаче оценки первого собственного значения оператора $\mathcal{A}-\mathcal{J}X_0$, равного $a_{11} - x^{0}_{11}$ в силу указанного разложения пространства $\mathfrak{X}$. Необходимо получить оценку $x^{0}_{11}$ матрицы оператора $X_0$. Для этого сначала преобразуем равенство (\ref{eq:som_eq}):
+\begin{gather}
+	\mathcal{A} + \mathcal{A} \Gamma X - \mathcal{B} - \mathcal{B} \Gamma X = \mathcal{A} - \mathcal{J} X + \Gamma X \mathcal{A} - \Gamma X \mathcal{J} X; \notag \\
+	\mathcal{A} \Gamma X - \Gamma X \mathcal{A} - \mathcal{B} \Gamma X + \mathcal{J} X + \Gamma X \mathcal{J} X - \mathcal{B} = 0; \notag \\
+	X - \mathcal{J} X - \mathcal{B} \Gamma X + \mathcal{J} X + \Gamma X \mathcal{J} X - \mathcal{B} = 0;  \notag \\
+	X = \mathcal{B} \Gamma X - \Gamma X \mathcal{J} X + \mathcal{B}. \label{eq:x_first}
+\end{gather}
+Применим к уравнению (\ref{eq:x_first}) трансформатор $\mathcal{J}$:
+$$
+	\mathcal{J}X = \mathcal{J}\mathcal{B}\Gamma X + \mathcal{J}\mathcal{B},
+$$ 
+и подставим $\mathcal{J}X$ в уравнение (\ref{eq:x_first}). Учитывая, что $\mathcal{JB} = 0 $ получаем нелинейное уравнение
+\begin{equation}\label{eq:x_main}
+	X = \mathcal{B}\Gamma X - \Gamma X \mathcal{J}(\mathcal{B}\Gamma X) - \mathcal{B} = \Phi(X).
+\end{equation}
+\noindent\textbf{Теорема~1.}
+{ \it Пусть выполнено неравенство
+$$
+\gamma\norm{\mathcal{B}} < \frac{1}{3},
+$$
+где $\gamma = \norm{(\alpha I - B)^{-1}},$ тогда нелинейное уравнение \eqref{eq:x_main} имеет единственное решение $X_0$ в шаре с центром в точке $\mathcal{B}$ и радиусом $2\norm{\mathcal{B}}$, на котором достигается равенство \eqref{eq:som_eq}. $X_0$ можно найти методом простых итераций, если в качестве первого приближения взять $X = 0.$}
+
+\noindent\textbf{Доказательство.}
+Найдем такой шар с центром в точке $\mathcal{B}$, который отображение $\Phi$ переводит сам в себя, т.е. если $\norm{X - \mathcal{B}} < r\norm{\mathcal{B}} (\text{или} \norm{X} < (r + 1)\norm{\mathcal{B}})$, то и $\norm{\Phi(X) - \mathcal{B}} < r\norm{\mathcal{B}}$.
+\begin{align*}
+\|\Phi(X) - \mathcal{B}\| &\leq \|\mathcal{B}(\Gamma X)-(\Gamma X)\mathcal{J}(\mathcal{B}\Gamma X)\| \leq \gamma \|\mathcal{B}\|~ \|X\|+\gamma^2 \|\mathcal{B}\|~ \|X\|^2 \leq \\ 
+&\leq \gamma (r+1) \|\mathcal{B}\|^2 + \gamma^2 \|\mathcal{B}\|^3 (r+1)^2 \leq r\|\mathcal{B}\|.
+\end{align*}
+Символом $r'$ обозначим $r+1$. Получили квадратное уравнение относительно $r'$:
+$$
+r'^2 \gamma^2 \|\mathcal{B}\|^2 + r' (\gamma \|\mathcal{B}\|-1)+1 \leq 0.
+$$
+Пусть $\varepsilon=\gamma \|\mathcal{B}\|$, тогда:
+\begin{align*}
+&\varepsilon^2 r'^2 + (\varepsilon - 1)r' + 1 \leq 0, \\  
+&\mathcal{D}=(\varepsilon-1)^2 - 4\varepsilon^2 = -3\varepsilon^2-2\varepsilon+1,
+\end{align*}
+для существования корней необходимо выполнение условия $\mathcal{D}~>~0$.
+Получаем квадратное неравенство относительно $\varepsilon.$
+\begin{align*}
+&-3\varepsilon^2-2\varepsilon+1 > 0 \\
+&3\varepsilon^2+2\varepsilon-1 < 0 \\
+&\mathcal{D}_1 = 1 + 3 = 4 \\
+& \varepsilon = \frac{1}{3}, \varepsilon = -1. 
+\end{align*}
+Получаем, что $\varepsilon \in (0; \frac{1}{3}),$ т.\! е. $\varepsilon < \frac{1}{3}$
+Найдем $r'$ при условии, что $\varepsilon = \frac{1}{3}:$
+$$
+r' = \frac{1 - \varepsilon \pm \sqrt{(\varepsilon - 1)^2 - 4\varepsilon^2}}{2\varepsilon^2} = 3.
+$$
+Тогда получаем, что $r = 2.$
+
+Проверим сжимаемость отображения $\Phi$ в этом шаре:
+\begin{align*}
+\|\Phi (X) - \Phi (Y) \| &= \| \mathcal{B}\Gamma X - (\Gamma X)\mathcal{J}(\mathcal{B}\Gamma X) + \mathcal{B} - \mathcal{B}\Gamma Y + (\Gamma Y)\mathcal{J}(\mathcal{B}\Gamma Y) -\mathcal{B}\|  = \\ 
+&= \| \mathcal{B}\Gamma (X-Y) - (\Gamma X)\mathcal{J}(\mathcal{B}\Gamma X) + (\Gamma Y)\mathcal{J} (\mathcal{B}\Gamma Y) - \\
+& \phantom{=} - (\Gamma Y)\mathcal{J}(\mathcal{B}\Gamma X) + (\Gamma Y)\mathcal{J}(\mathcal{B}\Gamma X) \| = \\
+ &= \| \mathcal{B}\Gamma(X - Y) - (\Gamma (X- Y)) \mathcal{J}(\mathcal{B}\Gamma X) - \\
+ & \phantom{=} - (\Gamma Y)\mathcal{J}(\mathcal{B}\Gamma (X - Y)) \| \leqslant \\
+ &\leqslant \varepsilon \| X-Y \| + 2\varepsilon ^2 r\| X-Y \| = (\varepsilon + 2\varepsilon ^2 r)\| X-Y \| 
+\end{align*}
+Возьмем $r = 2.$ Покажем, что $\varepsilon + 2\varepsilon ^2 r < 1.$
+$$
+\varepsilon + 2\varepsilon ^2 2 < \frac{1}{3} + 2 \cdot \frac{2}{9} = \frac{1}{3} + \frac{4}{9} = \frac{7}{9}.
+$$
+
+Тогда получаем, что отображение $\Phi$ переводит шар с центром в точке $\mathcal{B}$ и радиусом $2\|\mathcal{B}\|$ в себя и является на этом шаре сжимающим отображением, следовательно, существует внутри шара неподвижная точка отображения $\Phi$ , являющаяся единственным решением уравнения \eqref{eq:x_main} и ее можно найти по методу простых итераций, используя в качестве нулевого приближения нулевой оператор. Теорема доказана.
+\hfill
