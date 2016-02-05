@@ -1,0 +1,115 @@
+Рассмотрим линейный оператор $\mathbb{A} \in \spaceend\mathfrak{X},$
+где $\mathfrak{X}$ банахово пространство, заданный операторной матрицей, т. \! е.
+$$
+\mathbb{A} = \begin{pmatrix}
+		A & C \\
+		D & B
+	\end{pmatrix}.
+$$
+Пусть пространство $\mathfrak{X}$ представимо в виде прямой суммы подпространств: $\mathfrak{X} = \mathfrak{X}_1 \oplus \mathfrak{X}_2.$ Тогда
+\begin{align*}
+A \colon \mathfrak{X}_1 \to \mathfrak{X}_1 \\
+B \colon \mathfrak{X}_2 \to \mathfrak{X}_2 \\
+C \colon \mathfrak{X}_2 \to \mathfrak{X}_1 \\
+D \colon \mathfrak{X}_1 \to \mathfrak{X}_2
+\end{align*}
+Представим оператор $\mathbb{A}$ в виде $\mathbb{A} = \mathcal{A} - \mathcal{B},$ где оператор $\mathcal{A} \in \spaceend(\mathfrak{X}_1 \times \mathfrak{X}_2)$ задается матрицей 
+$\begin{pmatrix}
+		A & 0 \\
+		0 & B
+\end{pmatrix}, $ а оператор $\mathcal{B} \in \spaceend(\mathfrak{X}_1 \times \mathfrak{X}_2)$ -- матрицей
+$\begin{pmatrix}
+		0 & -C \\
+		-D & 0
+\end{pmatrix}.$
+Всюду далее считаем что выполняется условие:
+$$
+\sigma(A) \cap \sigma(B) = {\varnothing}.
+$$
+
+Символом $\mathcal{U}$ обозначим пространство $\spaceend(\mathfrak{X}_1 \times \mathfrak{X}_2)$ Рассмотрим канонические проекторы
+$$
+P_1x = (x_1, 0), P_2x = (0, x_2), x = (x_1, x_2) \in \mathfrak{X}_1 \times \mathfrak{X}_2.
+$$
+Для любого оператора $X \in \mathcal{U}$ рассмотрим операторы $P_iXP_j \in \mathcal{U}, i,j \in {1,2}.$ Таким образом, оператор $X$ задается матрицей:
+$$
+\mathcal{X} = \begin{pmatrix}
+		X_{11} & X_{12} \\
+		X_{21} & X_{22}
+	\end{pmatrix},
+$$
+где оператор $X_{ij}$ -- сужение оператора $P_iXP_j$ на подпространство $\mathfrak{X}_i$ с областью значений $\mathfrak{X}_j, i,j \in {1,2}.$
+
+В соответствии с заданным разложением пространства $\mathfrak{X}$ будем рассматривать два трансформатора: $\mathcal{J} \in \spaceend\mathcal{U}, \Gamma \in \spaceend\mathcal{U}$, таких что:
+\begin{enumerate}
+	\item Для любого $X \in \mathcal{U}$ оператор $\mathcal{J}X$ определяется следующим образом: $\mathcal{J}X = P_1XP_1 + P_2XP_2,$ а матрица оператора $\mathcal{J}X$ имеет вид:
+	$$
+	\mathcal{J}X = \begin{pmatrix}
+		X_{11} & 0 \\
+		0 & X_{22}
+	\end{pmatrix};
+	$$
+	\item Пусть $\Gamma X = Y,$ тогда оператор $Y$ определяется как решение уравнения:
+	\begin{equation}\label{eq:gamma_x_rule}
+		\mathcal{A}Y - Y\mathcal{A} = X - \mathcal{J}X,\qquad \forall X \in \mathcal{U}.
+	\end{equation}
+\end{enumerate}
+Запишем уравнение \ref{eq:gamma_x_rule} в матричном виде:
+$$
+\begin{pmatrix}
+		A & 0 \\
+		0 & B
+\end{pmatrix}
+\begin{pmatrix}
+		0 & Y_{12} \\
+		Y_{21} & 0
+\end{pmatrix} -
+\begin{pmatrix}
+		0 & Y_{12} \\
+		Y_{21} & 0
+\end{pmatrix}
+\begin{pmatrix}
+		A & 0 \\
+		0 & B
+\end{pmatrix} =
+\begin{pmatrix}
+		0 & X_{12} \\
+		X_{21} & 0
+\end{pmatrix}	 	
+$$
+Перемножив и вычтя матрицы получим следующую систему операторный уравнений:
+\begin{equation}\label{syst:gamma_x_rule}
+	\begin{cases}
+		AY_{12} - Y_{12}B = X_{12}, \\
+		BY_{21} - Y_{21}A = X_{21},
+	\end{cases}
+\end{equation}
+где $Y_{12}, Y_{21}$ -- искомые операторы. Если оператор $A$ или оператор $B$ ограничен, то уравнения \ref{syst:gamma_x_rule} разрешимы.
+
+Рассмотрим случай, когда $\dim\mathfrak{X}_1 = 1,$ т.\! е. оператор $A$ -- скалярный оператор: $A = \alpha I.$ Перепишем уравнения \ref{syst:gamma_x_rule}:
+$$
+	\begin{cases}
+		\alpha IY_{12} - Y_{12}B = X_{12}, \\
+		BY_{21} - Y_{21}\alpha I = X_{21}.
+	\end{cases}
+$$
+Так как оператор $A$ ограничен, то система имеет решение, и оно имеет вид:
+$$
+	\begin{cases}
+		Y_{12} = X_{12}(\alpha I - B)^{-1}, \\
+		Y_{21} = (\alpha I - B)^{-1}X_{21}.
+	\end{cases}
+$$
+Таким образом мы получили, что матрица оператора $\Gamma X$ имеет вид:
+$$
+	\Gamma X = \begin{pmatrix}
+		0 & X_{12}(\alpha I - B)^{-1} \\
+		(\alpha I - B)^{-1}X_{21} & 0
+	\end{pmatrix}.
+$$
+Оценим норму оператора $\Gamma.$ Пусть $X \in \mathcal{U},$ тогда:
+\begin{align*}
+&\norm{\Gamma X} \leqslant \max{(\norm{X_{12}(\alpha I - B)^{-1}}, \norm{(\alpha I - B)^{-1}X_{21}})} \leqslant \\ 
+&\leqslant \max{(\norm{(\alpha I - B)^{-1}}, \norm{(\alpha I - B)^{-1}})}\norm{X} = \norm{(\alpha I - B)^{-1}}\norm{X} = \gamma \norm{X}.
+\end{align*}  
+Получили следующую оценку $\norm{\Gamma} \leqslant \gamma.$
