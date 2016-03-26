@@ -3,7 +3,7 @@
 \begin{equation}\label{eq:som_eq}
 	(\mathcal{A}-\mathcal{B})(I + \Gamma X_0) = (I + \Gamma X_0)(\mathcal{A}-\mathcal{J}X_0).
 \end{equation}
-При условии $\norm{\Gamma X_0} \leqslant 1$ (тогда оператор $I + \Gamma X_0$ обратим) равенство (\ref{eq:som_eq}) означает подобие операторов $\mathcal{A}-\mathcal{B}$ и $\mathcal{A}-\mathcal{J}X_0$. Таким образом задача оценки первого собственного значения возмущенного оператора $\mathcal{A}-\mathcal{B}$ сводится к задаче оценки первого собственного значения оператора $\mathcal{A}-\mathcal{J}X_0$, равного $a_{11} - x^{0}_{11}$ в силу указанного разложения пространства $\mathfrak{X}$. Необходимо получить оценку $x^{0}_{11}$ матрицы оператора $X_0$. Для этого сначала преобразуем равенство (\ref{eq:som_eq}):
+При условии $\norm{\Gamma X_0} < 1$ (тогда оператор $I + \Gamma X_0$ обратим) равенство (\ref{eq:som_eq}) означает подобие операторов $\mathcal{A}-\mathcal{B}$ и $\mathcal{A}-\mathcal{J}X_0$. Таким образом задача оценки первого собственного значения возмущенного оператора $\mathcal{A}-\mathcal{B}$ сводится к задаче оценки собственного значения оператора $\mathcal{A}-\mathcal{J}X_0$, равного $a_{11} - x^{0}_{11}$ в силу указанного разложения пространства $\mathfrak{X}$. Необходимо получить оценку $x^{0}_{11}$ матрицы оператора $X_0$. Для этого сначала преобразуем равенство (\ref{eq:som_eq}):
 \begin{gather}
 	\mathcal{A} + \mathcal{A} \Gamma X - \mathcal{B} - \mathcal{B} \Gamma X = \mathcal{A} - \mathcal{J} X + \Gamma X \mathcal{A} - \Gamma X \mathcal{J} X; \notag \\
 	\mathcal{A} \Gamma X - \Gamma X \mathcal{A} - \mathcal{B} \Gamma X + \mathcal{J} X + \Gamma X \mathcal{J} X - \mathcal{B} = 0; \notag \\
@@ -20,48 +20,40 @@ $$
 \end{equation}
 
 Пусть $P_1, P_2$ -- проекторы относительно разложения пространства $\mathfrak{X} = \mathfrak{X}_1 \oplus \mathfrak{X}_2$. 
-Заметим, что $\forall X \in \spaceend\mathfrak{X}$ выполняется:
+Заметим, что $\forall X \in \spaceend\mathfrak{X}$ выполняются следующие два равенства:
 \begin{enumerate}
 	\item $\mathcal{J}X = P_1 X P_1 + P_2 X P_2;$
 	\item $P_i(\Gamma X)P_j = \Gamma(P_i X P_j),\ i,j = 1,2$, и $P_i(\Gamma X)P_i = 0,\ i = 1,2$.
 \end{enumerate}
-Таким образом пространство $\mathfrak{X}$ можно представить в виде прямой суммы $\mathfrak{X} = \mathfrak{X}_{11} \oplus \mathfrak{X}_{12} \oplus \mathfrak{X}_{21} \oplus \mathfrak{X}_{22}$ подпространств, где $\mathfrak{X}_{ij} = \{ P_i \mathfrak{X} P_j, X \in \spaceend\mathfrak{X} \},\\ \ i,j = 1,2$.
-Через $X_{ij}$ будем обозначать оператор $P_i X P_j,\ i,j=1,2$, таким образом $X = (P_1 + P_2)X(P_1 + P_2) = X_{11} + X_{12} + X_{21} + X_{22},\ X \in \spaceend\mathfrak{X}$.
-Применим операторы $P_1 \text{ и } P_2$ к обеим частям уравнения (\ref{eq:x_main}).
+Применим операторы $P_1 \text{ и } P_2$ к обеим частям уравнения \eqref{eq:x_main} и воспользуемся равенствами, приведенными выше.
 \begin{enumerate}
 	\item Применим справа и слева проектор $P_1$:
 	\begin{align}
-		P_1 X P_1 &= P_1 \mathcal{B}\Gamma X P_1 - P_1\Gamma X \mathcal{J}(\mathcal{B}\Gamma X)P_1 - P_1 \mathcal{B} P_1; \notag \\
 		\begin{split}
-			X_{11} &= (\mathcal{B}_{11} + \mathcal{B}_{12})(\Gamma X_{11} + \Gamma X_{21}) - \\
-			&- (\Gamma X_{11} + \Gamma X_{12})((\mathcal{B}_{11} + \mathcal{B}_{12})(\Gamma X_{11} + \Gamma X_{21})) + \mathcal{B}_{11}; \notag
-		\end{split}
-		\intertext{Будем учитывать, что $\mathcal{J}X_{12} = \mathcal{J}X_{21} = 0$, $\Gamma X_{11} = \Gamma X_{22} = 0$ 
-		и $\mathcal{B}_{11} = \mathcal{B}_{22} = 0$.}
-		X_{11} &= \mathcal{B}_{12}\Gamma X_{21};\label{eq:x11}
+			P_1 X P_1 &= P_1 \mathcal{B}\Gamma X P_1 - P_1\Gamma X \mathcal{J}(\mathcal{B}\Gamma X)P_1 - P_1 \mathcal{B} P_1 = \\
+			&= P_1\mathcal{B}(P_1 + P_2)\Gamma X P_1 - \Gamma P_1 X (P_1 \mathcal{B}\Gamma X P_1 + P_2 \mathcal{B}\Gamma X P_2) P_1 - 0 = \\
+			&= 0 + \mathcal{B}_{12}\Gamma X_{21} - \Gamma P_1 X P_1 \mathcal{B}_{12} \Gamma X_{21} P_1 = 
+			\mathcal{B}_{12}\Gamma X_{21}; \notag
+		\end{split} \\
+		X_{11} &= \mathcal{B}_{12}\Gamma X_{21}, \label{eq:x11}
+		\intertext{где $X_{11}$ -- сужение оператора $P_1 X P_1$ на пространство $\mathfrak{X}_1$ со значениями в $\mathfrak{X}_1$.} \notag
 	\end{align}
-
+	
 	\item Применим справа проектор $P_1$, а слева $P_2$:
 	\begin{align}
 		P_2 X P_1 &= P_2 \mathcal{B}\Gamma X P_1 - P_2\Gamma X \mathcal{J}(\mathcal{B}\Gamma X)P_1 - P_2 \mathcal{B} P_1; \notag \\
-		X_{21} &= (\mathcal{B}_{21} + \mathcal{B}_{22})(\Gamma X_{11} + \Gamma X_{21}) - \notag \\ 
-		&- (\Gamma X_{21} + \Gamma X_{22})((\mathcal{B}_{11} + \mathcal{B}_{12})(\Gamma X_{11} + \Gamma X_{21})) + \mathcal{B}_{21}; \notag \\
 		X_{21} &= - (\Gamma X_{21})\mathcal{B}_{12}\Gamma X_{21} + \mathcal{B}_{21} = \Phi_1(X_{21}); \label{eq:x21}
 	\end{align}
 
 	\item Применим справа и слева проектор $P_2$:
 	\begin{align}
 		P_2 X P_2 &= P_2 \mathcal{B}\Gamma X P_2 - P_2\Gamma X \mathcal{J}(\mathcal{B}\Gamma X)P_2 - P_2 \mathcal{B} P_2; \notag \\
-			X_{22} &= (\mathcal{B}_{21} + \mathcal{B}_{22})(\Gamma X_{12} + \Gamma X_{22}) - \notag \\
-			&- (\Gamma X_{21} + \Gamma X_{22})((\mathcal{B}_{21} + \mathcal{B}_{22})(\Gamma X_{12} + \Gamma X_{22})) + \mathcal{B}_{22}; \notag \\
 		X_{22} &= \mathcal{B}_{21}\Gamma X_{12};\label{eq:x22}
 	\end{align}
 
 	\item Применим справа проектор $P_2$, а слева $P_1$:
 	\begin{align}
 		P_1 X P_2 &= P_1 \mathcal{B}\Gamma X P_2 - P_1\Gamma X \mathcal{J}(\mathcal{B}\Gamma X)P_2 - P_1 \mathcal{B} P_2; \notag \\
-		X_{12} &= (\mathcal{B}_{11} + \mathcal{B}_{12})(\Gamma X_{12} + \Gamma X_{22}) - \notag \\ 
-		&- (\Gamma X_{11} + \Gamma X_{12})((\mathcal{B}_{21} + \mathcal{B}_{22})(\Gamma X_{12} + \Gamma X_{22})) + \mathcal{B}_{12}; \notag \\
 		X_{12} &= - (\Gamma X_{12})\mathcal{B}_{21}\Gamma X_{12} + \mathcal{B}_{12} = \Phi_2(X_{12}).\label{eq:x12}
 	\end{align}
 	
@@ -168,5 +160,8 @@ $$
 
 Найдя $X_{21}$ и $X_{12},$ подставим их в уравнения \eqref{eq:x11} и \eqref{eq:x22} соответственно, получим $X_{11}$ и $X_{22}.$ Отсюда следует, что уравнение \eqref{eq:x_main} разрешимо, и его решение находиться по формуле:
 $$
-	X_0 = X_{11} + X_{12} + X_{21} + X_{22}.
+	X_0 = \begin{pmatrix}
+		X_{11} & X_{12} \\
+		X_{21} & X_{22}
+	\end{pmatrix}.
 $$ 
