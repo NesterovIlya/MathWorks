@@ -1,0 +1,112 @@
+\documentclass{article}
+\usepackage[russian]{babel}
+\usepackage[cp1251]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\pagestyle{empty} \textwidth=108mm \textheight=165mm
+\usepackage{calc,ifthen}
+
+\input{style.tex}
+
+\begin{document}
+
+
+
+
+
+
+\tezis{ОЦЕНКА СОБСТВЕННОГО ЗНАЧЕНИЯ ЛИНЕЙНОГО ОГРАНИЧЕННОГО ОПЕРАТОРА В БАНАХОВОМ ПРОСТРАНСТВЕ}  % Заголовок прописными буквами
+{}% Если нет, то поле оставить пустым {}
+{И.Н. Нестеров} {\me{Нестеров И.Н.}}{ (Воронеж)} {nesterovilyan@gmail.com}
+
+
+
+%%%%%% Текст тезисов  %%%%%%%
+
+
+Рассмотрим линейный ограниченный оператор $\mathbb{A} \in \operatorname{End}\mathrm{X}$,
+\\где $\mathrm{X}$ -- банахово пространство, являющееся прямой суммой 
+$\mathrm{X} = \mathrm{X}_1 \oplus \mathrm{X}_2$ двух замкнутых подпространств
+$\mathrm{X}_1, \mathrm{X}_2$, где $\operatorname{dim}\mathrm{X}_1 = 1$ и $\operatorname{End}\mathrm{X}$ -- банахова алгебра линейных ограниченных операторов. Предполагается, что оператор $\mathbb{A}$ задается операторной матрицей
+$$
+\mathbb{A} = \begin{pmatrix}
+		A & C \\
+		D & B
+	\end{pmatrix},
+$$
+т.е. $\mathbb{A}x = (A x_1 + C x_2, D x_1 + B x_2)$, где $x = x_1 + x_2, \  A x_1 = a x_1$, \\ $a \in \mathbb{C}, \ x_1 \in \mathrm{X}_1, \ x_2 \in \mathrm{X}_2$.
+
+Представим оператор $\mathbb{A}$ в виде $\mathbb{A} = \mathcal{A} - \mathcal{B}$, где оператор \\ $\mathcal{A} \in \operatorname{End}\mathrm{X}$ задается матрицей 
+$\begin{pmatrix}
+		A & 0 \\
+		0 & B
+\end{pmatrix}, $ а оператор $\mathcal{B} \in \operatorname{End}\mathrm{X}$ матрицей
+$\begin{pmatrix}
+		0 & -C \\
+		-D & 0
+\end{pmatrix}.$
+Всюду далее считаем что выполняется условие $\sigma(A) \cap \sigma(B) = {\varnothing}$ для спектров $\sigma(A)$ и $\sigma(B)$ операторов $A$ и $B$.
+
+Символом $\mathrm{U}$ обозначим пространство $\operatorname{End}\mathrm{X}$. Для любого оператора $X \in \mathrm{U}$ рассмотрим операторы $P_i X P_j \in \mathrm{U}, \ i,j \in {1,2}.$ Таким образом, оператор $X$ задается матрицей:
+$$
+X = \begin{pmatrix}
+		X_{11} & X_{12} \\
+		X_{21} & X_{22}
+	\end{pmatrix},
+$$
+где оператор $X_{ij}$ -- сужение оператора $P_iXP_j$ на подпространство $\mathrm{X}_i$ с областью значений $\mathrm{X}_j, i,j \in {1,2}$.
+
+В соответствии с заданным разложением пространства $\mathrm{X}$ будем рассматривать два трансформатора: $\mathcal{J} \in \operatorname{End}\mathrm{U}, \Gamma \in \operatorname{End}\mathrm{U}$ [1].
+
+Применив метод подобных операторов [1] получаем нелинейное \\ уравнение
+\begin{equation}\label{eq:x_main}
+	X = \mathcal{B}\Gamma X - \Gamma X \mathcal{J}(\mathcal{B}\Gamma X) - \mathcal{B} = \Phi(X),
+\end{equation}
+к которому применим указанные выше проекторы. Блоки $X_{ij}, \\ {i,j = 1,2}$, оператора $X$ удовлетворяют уравнениям:
+\begin{align}
+	X_{11} &= \mathcal{B}_{12}\Gamma X_{21}; \label{eq:x11} \\
+	X_{21} &= - (\Gamma X_{21})\mathcal{B}_{12}\Gamma X_{21} + \mathcal{B}_{21} = \Phi_1(X_{21}); \label{eq:x21} \\
+	X_{22} &= \mathcal{B}_{21}\Gamma X_{12}; \label{eq:x22} \\
+	X_{12} &= - (\Gamma X_{12})\mathcal{B}_{21}\Gamma X_{12} + \mathcal{B}_{12} = \Phi_2(X_{12}) \label{eq:x12}.
+\end{align}
+
+
+\textbf{Теорема~1.} {\it Пусть выполнено неравенство
+\begin{equation*} 
+	\gamma \left\| \mathcal{B} \right\| < \frac{1}{2},
+\end{equation*}
+где $\gamma = \left\| (a I - \mathcal{B})^{-1} \right\|$. Тогда нелинейные уравнения \eqref{eq:x12} и \eqref{eq:x21} имеют единственные решения $X_{12}^0, X_{21}^0$ в шаре с центром в точке $\mathcal{B}$ и радиусом $\left\| \mathcal{B} \right\|$. $X_{12}^0$ и $X_{21}^0$ можно найти методом простых итераций.}
+
+\textbf{Теорема~2.} {\it Пусть выполнено неравенство
+\begin{equation*}
+	d = 2\gamma^2 (b_{12}b_{21})^{\frac{1}{2}} < 1,
+\end{equation*}
+а также выполняются условия предыдущей теоремы. 
+Тогда для решений $X_{11}^0$ и $X_{21}^0$ нелинейных уравнений \eqref{eq:x11}, \eqref{eq:x21} имеют место следующие оценки:
+\begin{align*}
+& \left\| X_{11}^0 \right\| \leq \frac{2\gamma b_{12}b_{21}}{1 + (1 - 4\gamma^2 b_{21}b_{12})^{\frac{1}{2}}},
+& \left\| X_{21}^0 \right\| \leq \frac{2b_{21}}{1 + (1 - 4\gamma^2 b_{21}b_{12})^{\frac{1}{2}}},
+\end{align*}
+где $\left\| \mathcal{B}_{ij} \right\| = b_{ij},\ i,j = 1,2.$}
+
+\textbf{Теорема~3.} {\it Пусть выполнены условия теоремы 2. Тогда оператор 
+$\mathbb{A}$ имеет собственное значение $\lambda_1^0 = a - x_{11}^0$, где $x_{11}^0$ определяется из $X_{11}^0 x_1 = x_{11}^0 x_1, \ x_1 \in \mathrm{X}_1$, причем имеет место оценка:
+$$
+	\left| x_{11}^0 \right| =\left\| X_{11}^0 \right\| \leq \frac{2\gamma b_{12}b_{21}}{1 + (1 - 4\gamma^2 b_{21}b_{12})^{\frac{1}{2}}} \leq \frac{1}{2\gamma} - \frac{1 - (1 - 4\gamma^2 b_{21}b_{12})^{\frac{1}{2}}}{4\gamma^2 b_{21}b_{12}},
+$$
+где $\gamma = \left\| (a I - \mathcal{B})^{-1} \right\|, b_{ij} = \left\| \mathcal{B}_{ij} \right\|, i,j=1,2$.
+}
+
+%%%%  ОФОРМЛЕНИЕ СПИСКА ЛИТЕРАТУРЫ %%%
+\liter
+
+1. Баскаков~А.~Г. Расщепление возмущённого дифференциального оператора с неограниченными операторными коэффициентами /
+А.~Г.~Баскаков // Фундамент. и прикл. матем., 8:1 (2002), 4–7 
+
+
+
+
+
+\end{document}
