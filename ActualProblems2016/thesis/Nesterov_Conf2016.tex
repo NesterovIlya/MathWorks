@@ -1,0 +1,193 @@
+\documentclass[12pt]{article}
+\usepackage[cp1251]{inputenc} % следующие две строки используются для
+\usepackage[english,russian]{babel}   % руссификации AmSLaTeX
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\setcounter{equation}{0}
+\textheight=240mm \textwidth=170mm
+
+\begin{document}
+
+\noindent УДК 517.984.3
+
+\begin{center}
+\textbf{ОЦЕНКА СОБСТВЕННОГО ЗНАЧЕНИЯ ЛИНЕЙНОГО ОГРАНИЧЕННОГО ОПЕРАТОРА} \\[3mm]
+\textbf{И.~Н. Нестеров}\\[2mm]
+\emph{Воронежский государственный университет}
+\end{center}
+
+Рассмотрим линейный ограниченный оператор $\mathbb{A} \in \operatorname{End}\mathfrak{X}$,
+где $\mathfrak{X}$ банахово пространство, являющееся прямой суммой 
+$\mathfrak{X} = \mathfrak{X}_1 \oplus \mathfrak{X}_2$ двух замкнутых подпространств
+$\mathfrak{X}_1, \mathfrak{X}_2$, и $\operatorname{End}\mathfrak{X}$ -- банахова алгебра линейных ограниченных операторов. Предполагается, что оператор $\mathbb{A}$ задается операторной матрицей
+$$
+\mathbb{A} \sim \begin{pmatrix}
+		A & C \\
+		D & B
+	\end{pmatrix},
+$$
+т.е. $\mathbb{A} x = (A x_1 + C x_2, D x_1 + B x_2)$, где $x = x_1 + x_2, \ x_1 \in \mathfrak{X}_1, \ x_2 \in \mathfrak{X}_2$. Здесь и далее будем отождествлять матрицу оператора, действующего в 
+$\operatorname{End}{X}$ с оператором, который определяется этой матрицей. Отметим, что
+
+\begin{align*}
+A \in \operatorname{End}\mathfrak{X}_1, \ C \in \operatorname{Hom}(\mathfrak{X}_2, \mathfrak{X}_1), \\
+B \in \operatorname{End}\mathfrak{X}_2, \ D \in \operatorname{Hom}(\mathfrak{X}_1, \mathfrak{X}_2).
+\end{align*}
+Представим оператор $\mathbb{A}$ в виде 
+\begin{equation*}
+\mathbb{A} = \Lambda - \mathfrak{B},
+\end{equation*}
+где оператор 
+$\Lambda \in \operatorname{End}\mathfrak{X}$ задается матрицей 
+$\begin{pmatrix}
+		A & 0 \\
+		0 & B
+\end{pmatrix}, $ а оператор $\mathfrak{B} \in \operatorname{End}\mathfrak{X}$ -- матрицей
+$\begin{pmatrix}
+		0 & -C \\
+		-D & 0
+\end{pmatrix}.$
+Всюду далее считаем что выполняется условие:
+$$
+\sigma(A) \cap \sigma(B) = \varnothing.
+$$
+
+Символом $\mathfrak{U}$ обозначим пространство $\operatorname{End}\mathfrak{X}$. Рассмотрим канонические проекторы
+$$
+P_1x = x_1, \ P_2x = x_2, \ x = x_1 + x_2 \in \mathfrak{X}_1 \oplus \mathfrak{X}_2, 
+\ x_1 \in \mathfrak{X}_1, \ x_2 \in \mathfrak{X}_2.
+$$
+Ясно, что $P_1 + P_2 = I$, $P_1 P_2 = P_2 P_1 = 0$.
+Для любого оператора $X \in \mathfrak{U}$ будем рассматривать операторы $P_i X P_j \in \mathfrak{U}, \ i,j \in {1,2}.$ Таким образом, оператор $X$ задается матрицей:
+$$
+X \sim \begin{pmatrix}
+		X_{11} & X_{12} \\
+		X_{21} & X_{22}
+	\end{pmatrix},
+$$
+где оператор $X_{ij}$ -- сужение оператора $P_iXP_j$ на подпространство $\mathfrak{X}_j$ с областью значений $\mathfrak{X}_i, i,j \in {1,2}$. Также далее будут рассматриваться сужения 
+$\mathfrak{B}_{11} = 0$, $\mathfrak{B}_{22} = 0$, $\mathfrak{B}_{12} = -C$ 
+и $\mathfrak{B}_{21} = -D$ оператора $\mathfrak{B}$. 
+
+В соответствии с заданным разложением пространства $\mathfrak{X}$ будем рассматривать два трансформатора: $\mathrm{J} \in \operatorname{End}\mathfrak{U}, \Gamma \in \operatorname{End}\mathfrak{U}$, таких что:
+\begin{enumerate}
+	\item Для любого $X \in \mathfrak{U}$ оператор $\mathrm{J} X$ определяется следующим образом: $\mathrm{J} X = P_1XP_1 + P_2XP_2,$ а матрица оператора $\mathrm{J} X$ имеет вид:
+	$$
+	\mathrm{J} X \sim \begin{pmatrix}
+		X_{11} & 0 \\
+		0 & X_{22}
+	\end{pmatrix};
+	$$
+	\item Трансформатор $\Gamma \in \operatorname{End}\mathfrak{U}$ построим следующим образом. Оператор 
+	$\Gamma X$, где $X \in \mathfrak{U}$ определим как решение $Y \in \operatorname{End}\mathfrak{U}$ уравнения
+	\begin{equation}\label{eq:gamma_x_rule}
+		\Lambda Y - Y \Lambda = X - \mathrm{J} X,\qquad \forall X \in \mathfrak{U},
+	\end{equation}
+	удовлетворяющее условию $\mathrm{J} Y = 0$, кроме того можно показать, что решение 
+	$Y$ существует и единственно.
+\end{enumerate}
+Далее считается, что $\operatorname{dim}\mathfrak{X}_1 = 1$, 
+следовательно, оператор $A$ имеет вид $A = \alpha I$. Несложно показать, что в таком случае имеет место следующая оценка трансформатора $\Gamma$
+\begin{equation}\label{eq:gamma}
+\left\|{\Gamma}\right\| \leqslant \gamma = \left\|{(\alpha I - B)^{-1}}\right\|.
+\end{equation}
+
+Будем искать такой оператор $X_0 \in \mathfrak{U}$, чтобы выполнялось равенство
+\begin{equation}\label{eq:som_eq}
+	(\Lambda-\mathfrak{B})(I + \Gamma X_0) = (I + \Gamma X_0)(\Lambda - \mathrm{J} X_0).
+\end{equation}
+При условии $\left\|{\Gamma X_0}\right\| < 1$ (тогда оператор $I + \Gamma X_0$ обратим) равенство (\ref{eq:som_eq}) означает подобие операторов $\Lambda - \mathfrak{B}$ и $\Lambda - \mathrm{J} X_0$. Таким образом задача оценки собственного значения возмущенного оператора $\Lambda-\mathfrak{B}$ сводится к задаче оценки собственного значения оператора $\Lambda - \mathrm{J} X_0$, равного $\alpha - x^{0}_{11}$ в силу указанного разложения пространства $\mathfrak{X}$. Необходимо получить оценку $x^{0}_{11}$ матрицы оператора $X_0$. После преобразования равенства (\ref{eq:som_eq}) получаем:
+\begin{gather}
+	X = \mathfrak{B} \Gamma X - \Gamma X \mathrm{J} X + \mathfrak{B}. \label{eq:x_first}
+\end{gather}
+Применим к уравнению (\ref{eq:x_first}) трансформатор $\mathrm{J}$, и, учитывая равенство 
+$$\mathrm{J}((\Gamma X) (\mathrm{J} X)) = 0,$$ 
+получим, что
+$$
+	\mathrm{J} X = \mathrm{J}(\mathfrak{B} \Gamma X) + \mathrm{J}\mathfrak{B},
+$$ 
+и подставим $\mathrm{J} X$ в уравнение (\ref{eq:x_first}). Учитывая, что $\mathrm{J} \mathfrak{B} = 0 $ получаем нелинейное уравнение
+\begin{equation}\label{eq:x_main}
+	X = \mathfrak{B} \Gamma X - \Gamma X \mathrm{J}(\mathfrak{B}\Gamma X) - \mathfrak{B} = \Phi(X).
+\end{equation}
+
+Пусть $P_1, P_2$ -- проекторы относительно разложения пространства 
+$\mathfrak{X} = \mathfrak{X}_1 \oplus \mathfrak{X}_2$, т.e. $\mathfrak{X}_1 = \operatorname{Im}{P_1}$, $\mathfrak{X}_1 = \operatorname{Im}{P_2}$. 
+Заметим, что $\forall X \in \operatorname{End}\mathfrak{X}$ выполняются следующие два равенства:
+\begin{enumerate}
+	\item $\mathrm{J} X = P_1 X P_1 + P_2 X P_2;$
+	\item $P_i(\Gamma X)P_j = \Gamma(P_i X P_j),\ i,j = 1,2$, и $P_i(\Gamma X)P_i = 0,\ i = 1,2$.
+\end{enumerate}
+Применим операторы $P_1 \text{ и } P_2$ к обеим частям уравнения \eqref{eq:x_main} и воспользуемся равенствами, приведенными выше. Получаем:
+\begin{align}
+		X_{11} &= - C \Gamma X_{21}, \label{eq:x11} \\
+		X_{21} &= (\Gamma X_{21}) C \Gamma X_{21} - D = \Phi_1(X_{21}), \label{eq:x21} \\
+		X_{22} &= - D \Gamma X_{12}, \label{eq:x22} \\
+		X_{12} &= (\Gamma X_{12}) D \Gamma X_{12} - C = \Phi_2(X_{12}),\label{eq:x12}
+\end{align}
+
+Получили четыре уравнения, причем уравнения \eqref{eq:x21} и \eqref{eq:x12} независимы от остальных уравнений. Разрешимость уравнения \eqref{eq:x_main} будет доказана если, будет доказана разрешимость уравнений \eqref{eq:x21} и \eqref{eq:x12}.  
+
+\noindent\textbf{Теорема~1.}\label{th:solvability}
+{ \it
+Пусть выполнено неравенство
+\begin{equation}\label{eq:solvability_equation}
+	\gamma\max(\left\|{C}\right\|,\left\|{D}\right\|) < \frac{1}{2}
+\end{equation}
+где $\gamma = \left\|{(\alpha I - B)^{-1}}\right\|,$ тогда нелинейные уравнения \eqref{eq:x21} и
+\eqref{eq:x12} имеют единственные решения $X_{12}^0, X_{21}^0$ в шарах с центрами в точках 
+$-C$ и $-D$, радиусами $\left\|{C}\right\|$ и 
+$\left\|{D}\right\|$ соответственно. $X_{12}^0$ и $X_{21}^0$ можно найти методом простых итераций.
+}
+
+Найдя $X_{21}^0$ и $X_{12}^0$, подставим их в уравнения \eqref{eq:x11} и \eqref{eq:x22} соответственно, получим $X_{11}^0$ и $X_{22}^0$. Отсюда следует, что уравнение \eqref{eq:x_main} разрешимо, и его решение можно записать в виде:
+$$
+	X_0 \sim \begin{pmatrix}
+		X_{11}^0 & X_{12}^0 \\
+		X_{21}^0 & X_{22}^0
+	\end{pmatrix}.
+$$ 
+
+
+Искомую оценку элемента $x_{11}$ оператора $X$, являющегося решением \\нелинейного уравнения (\ref{eq:x_main}) мы получим, получив оценку $\left\|{X_{11}}\right\|$. Для оценки $\left\|{X_{11}}\right\|$ в свою очередь требуется оценка $\left\|{X_{21}}\right\|$ и разрешимость уравнения (\ref{eq:x21}). Потому сформулируем и докажем следующую теорему:
+
+\noindent\textbf{Теорема~2.}\label{th:estimation}
+{ \it
+Пусть выполняются условия предыдущей теоремы. 
+Тогда для нелинейных уравнений \eqref{eq:x11} - \eqref{eq:x21} имеют место следующие оценки:
+\begin{align*}
+&\left\|{X_{11}^0}\right\| \leq \frac{1 - (1 - 4\gamma^2 \left\|{D}\right\|  \left\|{C}\right\|)^{\frac{1}{2}}}{2\gamma},
+&\left\|{X_{21}^0}\right\| \leq \frac{1 - (1 - 4\gamma^2 \left\|{D}\right\|  \left\|{C}\right\|)^{\frac{1}{2}}}{2\gamma^2\left\|{C}\right\|}.
+\end{align*}
+}
+
+\noindent\textbf{Теорема~3.}\label{th:final_result}
+{\it 
+Пусть выполнены условия теоремы \ref{th:estimation}. Тогда оператор 
+$\mathbb{A}$ имеет собственное значение $\lambda_1^0 = \alpha - x_{11}^0$, где $x_{11}^0$ определяется из $X_{11}^0 x_1 = x_{11}^0 x_1, \ x_1 \in \mathfrak{X}_1$, причем имеет место оценка:
+$$
+\left|{x_{11}^0}\right|  = \left\|{X_{11}^0}\right\| \leq \frac{1 - (1 - 4\gamma^2 \left\|{D}\right\|  \left\|{C}\right\|)^{\frac{1}{2}}}{2\gamma} \leq \frac{1}{2\gamma},
+$$
+где $\gamma = \left\|{(\alpha I - B)^{-1}}\right\|$.
+}
+
+\smallskip\centerline{\bf Литература}
+
+1.\emph{Баскаков А.~Г.} Расщепление возмущенного дифференциального операто­ра с неограниченными операторными коэффициентами // Фундаменталь­ная и прикладная математика. -- 2002. -- Т.~8, №~1. -- С.~4--7.
+
+2. \emph{Баскаков А.~Г.} Теорема о расщеплении оператора и некоторые смежные вопросы аналитической теории возмущений. // Изв. АН СССР. Сер. ма­тем. -- 1986. -- Т. 50, № 3. -- С.~435--457.
+
+2. \emph{Баскаков А.~Г.} Метод подобных операторов и формулы регуляризован­ных следов. // Изв. вузов. Матем. -- 1984. -- № 3. -- С.~3--12.
+
+\end{document}
+
+% Информация об авторе:
+% 1. Ф.И.О.: Нестеров Илья Николаевич
+% 2. Ученая степень, звание: отсутствует
+% 3. Должность: -
+% 4. Место работы: -
+% 5. E-mail: nesterovilyan@gmail.com
+% 6. Контактный телефон: 8 920 415 64 58
+% Научный руководитель: д.ф.-м.н.,профессор Баскаков Анатолий Григорьевич.
+

@@ -1,0 +1,190 @@
+\documentclass[12pt]{article}
+\usepackage[cp1251]{inputenc} % следующие две строки используются для
+\usepackage[english,russian]{babel}   % руссификации AmSLaTeX
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\setcounter{equation}{0}
+\textheight=240mm \textwidth=170mm
+
+\begin{document}
+
+\noindent УДК 517.926
+
+\begin{center}
+\textbf{ЖОРДАНОВА ФОРМА СОПРОВОЖДАЮЩИХ МАТРИЦ ДЛЯ РЕКУРРЕНТНЫХ СООТНОШЕНИЙ} \\[3mm]
+\textbf{И.\,Н.\,Нестеров,\,С.\,В.\,Клочков,\,А.\,С.\,Чурсанова}\\[2mm]
+\emph{Воронежский государственный университет}
+\end{center}
+
+Рассмотрим задачу построения последовательности $x : \mathbb{N} \rightarrow \mathbb{C}$, для которой известны первые $n \ge 1$ членов $x(1) = x_1^0, \dots, x(n) = x_n^0$ и все последующие задаются рекуррентными соотношениями
+\begin{equation}\label{Relation}
+x(m+n) = \alpha_1 x(m+n-1) + \alpha_2 x(m+n-2) + \dots + \alpha_n x(m), m \ge 1,
+\end{equation}
+где $\alpha_1, \dots, \alpha_n$ - известные числа из $\mathbb{C}$.
+Введем в рассмотрение последовательность \\ $x_k : \mathbb{N} \rightarrow \mathbb{C}, 1 \le k \le n$, определенные равенствами
+\begin{align*}
+x_1(m) &= x(m), \\
+x_2(m) &= x(m+1), \\
+\dots \\
+x_n(m) &= x(m+n), n \ge 1.
+\end{align*}
+Используя \eqref{Relation}, получаем, что такие последовательности связаны друг с другом равенствами
+\begin{equation}\label{Equality}
+\begin{aligned}
+x_1(m+1) &= x_2(m), \\
+x_2(m+1) &= x_3(m), \\
+\dots \\
+x_n(m+1) &= \alpha_n x_1(m) + \alpha_{n-1} x_2(m)+ \dots + \alpha_1 x_n(m), m \ge 1.
+\end{aligned}
+\end{equation}
+Рассмотрим последовательность $y: \mathbb{Z} \rightarrow \mathbb{C}^n$ вида
+$$
+y(m) = (x_1(m), \dots, x_n(m)), m \ge 1.
+$$
+Из \eqref{Equality} следует, что для нее верны равенства 
+\begin{equation}\label{Sequence}
+y(m+1) = A y(m), m \ge 1,
+\end{equation}
+где оператор $A: \mathbb{C}^n \to \mathbb{C}^n$ определен с помощью матрицы 
+$$
+	\mathcal{A} = \begin{pmatrix}
+		0 & 1 & 0 & \dots & 0 \\
+		0 & 0 & 1 & \dots & 0 \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & 0 & \dots & 1 \\
+		\alpha_n & \alpha_{n-1} & \alpha_{n-1} & \dots & \alpha_1
+	\end{pmatrix},
+$$
+а $P(\lambda) = \lambda^{n} - \alpha_{1}\lambda^{n-1} - \ldots - \alpha_{n}, \lambda \in \mathbb{C}$ -- характеристический многочлен этой матрицы.
+
+\textbf{Теорема~1.}
+{ \it Пусть $\lambda_1, \ldots , \lambda_m$ -- собственные значения матрицы $\mathcal{A}$ кратностей \\ $k_1, \ldots , k_m$ соответственно, где $\sum\limits_{i=1}^m k_i = n$. Тогда жорданова форма для матрицы $\mathcal{A}$ имеет вид
+$$
+	\mathcal{J} = \begin{pmatrix}
+		\mathcal{J}_1 & 0 & \dots & 0 \\
+		0 & \mathcal{J}_2 & \dots & 0 \\
+		\vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & \dots & \mathcal{J}_m
+	\end{pmatrix}, {\text{где }}
+	\mathcal{J}_i = \begin{pmatrix}
+		\lambda_i & 1 & 0 & \dots & 0 \\
+		0 & \lambda_i & 1 & \dots & 0 \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & 0 & \dots & 1 \\
+		0 & 0 & 0 & \dots & \lambda_i
+	\end{pmatrix}.
+$$
+Матрица перехода $\mathcal{U}$ имеет вид
+$$
+\mathcal{U} = \operatorname{diag} \left( \mathcal{U}_1, \mathcal{U}_2, \dots, \mathcal{U}_m \right),
+$$
+где матрицы $\mathcal{U}_i \in Matr_{n,k_i} (\mathbb{C}) , i= \overline{1,m}$, имеют вид
+$$
+\mathcal{U}_i = \begin{pmatrix}
+1 & 0 & \dots & 0 \\
+\lambda_i & 1 & \dots & 0 \\ 
+\lambda_i^2 & 2\lambda_i & \dots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+\lambda_i^{n-1} & (n-1)\lambda_i^{n-2} & \dots & \prod_{k=1}^{k_i-1}(n-k)\lambda_i^{n-k_i}
+\end{pmatrix}.
+$$
+}
+\textbf{Доказательство.} Пусть $\lambda_i$ - собственное значение матрицы $\mathcal{A}$ кратности~$k_i$. Найдем соответствующие ему собственный и присоединенные векторы. Рассмотрим матрицу вида
+$$
+\mathcal{A}-\lambda_i I = 
+\begin{pmatrix}
+	-\lambda_i & 1 & 0 & \dots & 0 \\
+	0 & -\lambda_i & 1 & \dots & 0 \\
+	\vdots & \vdots & \vdots & \ddots & \vdots \\
+	0 & 0 & 0 & \dots & 1 \\
+	\alpha_n & \alpha_{n-1} & \alpha_{n-1} & \dots & \alpha_1-\lambda_i
+\end{pmatrix},
+$$ 
+где $I$ -- единичная матрица.\\
+Пусть $x_i \in \mathbb{C}^n$ - собственный вектор, отвечающий собственному значению~$\lambda_i$. Тогда справедливо равенство
+\begin{equation}\label{Equation1}
+\left(\mathcal{A}-\lambda_i I \right) x_i = 0,
+\end{equation}
+где $x_i = \left( x_{i1}, x_{i2}, \dots, x_{in} \right)$. Очевидно, что $x_{i1} \ne 0$ (иначе вектор $x_i$ был бы нулевым). Без ограничения общности можно считать, что $x_{i1} = 1$. Тогда равенство \eqref{Equation1} эквивалентно системе уравнений:
+\begin{equation}\label{SystemForVector}
+\begin{cases}
+-\lambda_i + x_{i2} = 0, \\
+-\lambda_i x_{i2} + x_{i3} = 0, \\
+\dots \\
+-\lambda_i x_{i n-2} + x_{i n-1} = 0, \\
+\alpha_n + \alpha_{n-1} x_{i2} + \dots + (\alpha_1 - \lambda_i) x_{in} = 0.
+\end{cases}
+\end{equation}
+Решив систему \eqref{SystemForVector}, получим, что 
+$$
+x_i = \left( 1, \lambda_i, \lambda_i ^2, \dots, \lambda_i ^{n-1} \right).
+$$
+Пусть $k_i \ne 1$. Найдем присоединенные векторы к вектору $x_i$. \\
+Пусть $x_{i,j} \in \mathbb{C}^n,1\le j\le k_i-1$~-~присоединенные векторы, отвечающие собственному значению $\lambda_i$. Первый присоединенный вектор $x_{i,1}$ есть решение уравнения
+\begin{equation}\label{Equation2}
+\left(\mathcal{A}-\lambda_i I \right) x_{i,1} = x_i,
+\end{equation}
+где $x_{i,1} =  \left( x_{1,1}, x_{2,1}, \dots, x_{n,1} \right)$ - подлежащий определению присоединенный вектор, $x_i$ - собственный вектор, отвечающий собственному значению $\lambda_i$. Пусть $x_{1,1} = 0$. Тогда равенство \eqref{Equation2} эквивалентно системе уравнений:
+\begin{equation}\label{SystemForVect}
+\begin{cases}
+x_{2,1} = 1, \\
+-\lambda_i x_{2,1} + x_{3,1} = \lambda_i, \\
+\dots \\
+-\lambda_i x_{n-2,1} + x_{n-1,1} = \lambda_i ^{n-2}, \\
+\alpha_{n-1} x_{2,1} + \alpha_{n-2} x_{3,1} \dots + (\alpha_1 - \lambda_i ^{n-1}) x_{n,1} = \lambda_i ^{n-1}.
+\end{cases}
+\end{equation}
+Поскольку $P'(\lambda_i)=0$, тогда, решив систему \eqref{SystemForVect}, получим вектор 
+$$x_{i,1} = \left(0, 1, 2 \lambda_i, 3 \lambda_i ^2, \dots, (n-1)\lambda_i ^{n-2} \right), $$ который является присоединенным к собственному вектору $x_i$. \\
+Аналогичным образом устанавливается, что векторы 
+$$
+x_{i,p} = \left(\underbrace{0, \dots, 0}_{{p}}, p!, (p+1)! \lambda_i, \dots, \prod_{k=1}^p(n-k)\lambda_i ^{n-p-1} \right),
+$$
+где $1 \le p \le {k_i-1}$, являются присоединенными к вектору $x_i$. \\
+Таким образом, доказано, что матрица $\mathcal{U}$ составлена из собственных и присоединенных векторов. Поэтому $\operatorname{det}\mathcal{U} \ne 0$, и, следовательно, матрица $\mathcal{U}$ является матрицей перехода к жордановой форме и имеет вид 
+$$
+\mathcal{U} = \operatorname{diag} \left( \mathcal{U}_1, \mathcal{U}_2, \dots, \mathcal{U}_m \right),
+$$
+где матрицы $\mathcal{U}_i \in Matr_{n,k_i} (\mathbb{C}), i=1 \dots m$, имеют вид
+$$
+\mathcal{U}_i = \begin{pmatrix}
+1 & 0 & \dots & 0 \\
+\lambda_i & 1 & \dots & 0 \\ 
+\lambda_i^2 & 2\lambda_i & \dots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+\lambda_i^{n-1} & (n-1)\lambda_i^{n-2} & \dots & \prod_{k=1}^{k_i-1}(n-k)\lambda_i^{n-k_i}
+\end{pmatrix}.
+$$
+Теорема доказана. 
+
+\smallskip\centerline{\bf Литература}
+
+1.\emph{Баскаков А.~Г.} Лекции по алгебре // Воронеж: Издательско-полиграфический центр Воронежского государственного университета -- 2013. -- 159 с.
+
+\end{document}
+
+% Информация об авторах:
+% I.
+% 	1. Ф.И.О.: Нестеров Илья Николаевич
+% 	2. Ученая степень, звание: отсутствует
+% 	3. Должность: -
+% 	4. Место работы: -
+% 	5. E-mail: nesterovilyan@gmail.com
+% 	6. Контактный телефон: 8 920 415 64 58
+% II.
+% 	1. Ф.И.О.: Клочков Сергей Владимирович
+% 	2. Ученая степень, звание: отсутствует
+% 	3. Должность: -
+% 	4. Место работы: -
+% 	5. E-mail: klochkov_s.v@mail.ru
+% 	6. Контактный телефон: 89103404786
+% III.
+% 	1. Ф.И.О.: Чурсанова Анастасия Сергеевна
+% 	2. Ученая степень, звание: отсутствует
+% 	3. Должность: -
+% 	4. Место работы: -
+% 	5. E-mail: anastasyachursanova@gmail.com
+% 	6. Контактный телефон: 8-950-753-82-33
+% Научный руководитель (у всех авторов): д.ф.-м.н.,профессор Баскаков Анатолий Григорьевич.
+
